@@ -14,8 +14,8 @@ It allows users to remotely control and monitor home appliances, lighting, and o
 - 28BYJ-48 Stepper motors with ULN2003 Driver
 - MPU 6050 sensor
 - Mini Bulbs, Buzzer, Relay Module
-- Fan
-- Wires
+- Raspberry Pi Fan
+- Jumper Wires
 - Android Device
 - MQ2 sensor
   
