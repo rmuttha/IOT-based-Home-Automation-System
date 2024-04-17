@@ -1,0 +1,93 @@
+#include <stdbool.h>
+#include "platform.h"
+#include "xil_printf.h"
+#include "xparameters.h"
+#include "xstatus.h"
+#include "xiic.h"
+#include "nexys4IO.h"
+#include "xgpio.h"
+
+// Definitions for peripheral NEXYS4IO
+#define N4IO_BASEADDR           XPAR_NEXYS4IO_0_S00_AXI_BASEADDR
+
+// Definitions for peripheral AXI_IIC
+#define IIC_ID                  XPAR_IIC_0_DEVICE_ID
+#define IIC_BADDR               XPAR_IIC_0_BASEADDR
+
+/************************ AXI Peripheral Instances ***********************/
+XIic        IICInst;                                // Instance of the IIC peripheral
+
+
+/************************** Function Prototypes *************************/
+int  do_init(void);
+int InitializeIIC(XIic *IicInstancePtr, u16 iicid);
+
+int main() {
+    int Status;
+    XGpio FAN_OUT;
+    XGpio_Config *ConfigPtr;
+    init_platform();
+
+    uint32_t sts = do_init();
+
+    if (XST_SUCCESS != sts) {
+        xil_printf("FATAL(main): System initialization failed\r\n");
+        return 1;
+    }
+
+    // Initialize IIC instance and check status
+    Status = InitializeIIC(&IICInst, IIC_ID);
+    if (Status != XST_SUCCESS) {
+        xil_printf("IIC initialization failed!\r\n");
+        return XST_FAILURE;
+    }
+    xil_printf("Program started\r\n");
+
+    XGpio_Initialize(&FAN_OUT, XPAR_GPIO_14_DEVICE_ID);
+    XGpio_SetDataDirection(&FAN_OUT, 1, 0x0);
+    while(1){
+    XGpio_DiscreteWrite(&FAN_OUT,1,0xF);
+    usleep(500000);
+    XGpio_DiscreteWrite(&FAN_OUT,1,0x00);
+    usleep(500000);
+    }
+    cleanup_platform();
+    // Return 0 to indicate successful execution
+    return 0;
+}
+
+/**
+ *
+ * @brief   Initializes the system.
+ * @details This function initializes the Nexys4 driver and checks the status.
+ * @return  XST_SUCCESS if initialization is successful, XST_FAILURE otherwise.
+ *
+ */
+int do_init(void) {
+    uint32_t status;                // Status from Xilinx Library calls
+    // Initialize the Nexys4 driver
+    status = NX4IO_initialize(N4IO_BASEADDR);
+    // Check if initialization is successful
+    if (status != XST_SUCCESS) {
+        return XST_FAILURE;
+    }
+    // Return success status
+    return XST_SUCCESS;
+
+}
+
+/**
+ * @brief   Initializes the I2C peripheral.
+ * @details This function initializes the I2C peripheral instance and prints a success message.
+ * @param   IicInstancePtr Pointer to the I2C instance.
+ * @param   iicid          ID of the I2C device.
+ * @return  XST_SUCCESS if initialization is successful.
+ */
+int InitializeIIC(XIic *IicInstancePtr, u16 iicid) {
+
+	// Print initialization success message
+    xil_printf("I2C Initialized Successfully\r\n");
+
+    // Return success status
+    return XST_SUCCESS;
+}

@@ -1,0 +1,56 @@
+18:54:18 **** Incremental Build of configuration Debug for project Final_project_Application ****
+make all 
+'Building file: ../src/test_nexys4io.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/test_nexys4io.o" -IE:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST2_VITIS/Final_Project_Platform/export/Final_Project_Platform/sw/Final_Project_Platform/standalone_domain/bspinclude/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/test_nexys4io.d" -MT"src/test_nexys4io.o" -o "src/test_nexys4io.o" "../src/test_nexys4io.c"
+../src/test_nexys4io.c: In function 'gpioinit':
+../src/test_nexys4io.c:583:9: warning: control reaches end of non-void function [-Wreturn-type]
+  583 |         }
+      |         ^
+../src/test_nexys4io.c: In function 'main':
+../src/test_nexys4io.c:305:46: warning: 'i' may be used uninitialized [-Wmaybe-uninitialized]
+  305 |                                         if(i % (stepsPerRevolution / 4) == 0 && i != 0) { // Adjust as necessary
+      |                                            ~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/test_nexys4io.c:317:46: warning: 'i' may be used uninitialized [-Wmaybe-uninitialized]
+  317 |                                         if(i % (stepsPerRevolution / 4) == 0 && i != 0) { // Adjust as necessary
+      |                                            ~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/test_nexys4io.c:330:46: warning: 'i' may be used uninitialized [-Wmaybe-uninitialized]
+  330 |                                         if(i % (stepsPerRevolution / 4) == 0 && i != 0) { // Adjust as necessary
+      |                                            ~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/test_nexys4io.c:343:70: warning: 'i' may be used uninitialized [-Wmaybe-uninitialized]
+  343 |                                                                 if(i % (stepsPerRevolution / 4) == 0 && i != 0) { // Adjust as necessary
+      |                                                                    ~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/test_nexys4io.c:360:86: warning: 'i' may be used uninitialized [-Wmaybe-uninitialized]
+  360 |                                                                                 if(i % (stepsPerRevolution / 4) == 0 && i != 0) { // Adjust as necessary
+      |                                                                                    ~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/test_nexys4io.c:373:86: warning: 'i' may be used uninitialized [-Wmaybe-uninitialized]
+  373 |                                                                                 if(i % (stepsPerRevolution / 4) == 0 && i != 0) { // Adjust as necessary
+      |                                                                                    ~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/test_nexys4io.c:387:123: warning: 'i' may be used uninitialized [-Wmaybe-uninitialized]
+  387 |                                                                                                                      if(i % (stepsPerRevolution / 4) == 0 && i != 0) { // Adjust as necessary
+      |                                                                                                                         ~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/test_nexys4io.c:400:146: warning: 'i' may be used uninitialized [-Wmaybe-uninitialized]
+  400 |                                                                                                                                             if(i % (stepsPerRevolution / 4) == 0 && i != 0) { // Adjust as necessary
+      |                                                                                                                                                ~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/test_nexys4io.c:412:150: warning: 'i' may be used uninitialized [-Wmaybe-uninitialized]
+  412 |                                                                                                                                                 if(i % (stepsPerRevolution / 4) == 0 && i != 0) { // Adjust as necessary
+      |                                                                                                                                                    ~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/test_nexys4io.c:426:150: warning: 'i' may be used uninitialized [-Wmaybe-uninitialized]
+  426 |                                                                                                                                                 if(i % (stepsPerRevolution / 4) == 0 && i != 0) { // Adjust as necessary
+      |                                                                                                                                                    ~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+'Finished building: ../src/test_nexys4io.c'
+' '
+'Building target: Final_project_Application.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -LE:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST2_VITIS/Final_Project_Platform/export/Final_Project_Platform/sw/Final_Project_Platform/standalone_domain/bsplib/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "Final_project_Application.elf"  ./src/mpu6050.o ./src/platform.o ./src/test_nexys4io.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: Final_project_Application.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size Final_project_Application.elf  |tee "Final_project_Application.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  29812	    580	   3480	  33872	   8450	Final_project_Application.elf
+'Finished building: Final_project_Application.elf.size'
+' '
+
+18:54:27 Build Finished (took 9s.365ms)
+

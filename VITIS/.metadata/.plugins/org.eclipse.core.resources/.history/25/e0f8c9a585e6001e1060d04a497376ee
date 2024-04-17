@@ -1,0 +1,646 @@
+/**
+* @file PID_Project.c
+*
+* @author Raksha Mairpady and Ruthuja Mutta
+*
+* @brief
+*
+******************************************************************************/
+/*********** Include Files **********/
+#include <stdbool.h>
+#include  "platform.h"
+#include  "xil_printf.h"
+#include  "xparameters.h"
+#include  "xstatus.h"
+#include  "xiic.h"
+#include  "nexys4IO.h"
+#include  "xuartlite_l.h"
+#include  "xuartlite.h"
+#include "mpu6050.h"
+#include "microblaze_sleep.h"
+#include "xgpio.h"
+
+
+/*********** Peripheral-related constants **********/
+// Clock frequencies
+#define CPU_CLOCK_FREQ_HZ		XPAR_CPU_CORE_CLOCK_FREQ_HZ
+#define AXI_CLOCK_FREQ_HZ		XPAR_CPU_M_AXI_DP_FREQ_HZ
+
+// Definitions for peripheral NEXYS4IO
+#define N4IO_DEVICE_ID		    XPAR_NEXYS4IO_0_DEVICE_ID
+#define N4IO_BASEADDR		    XPAR_NEXYS4IO_0_S00_AXI_BASEADDR
+#define N4IO_HIGHADDR		    XPAR_NEXYS4IO_0_S00_AXI_HIGHADDR
+
+/*********Definitions for peripheral AXI_IIC************/
+#define IIC_ID 			XPAR_IIC_0_DEVICE_ID
+#define IIC_BADDR		XPAR_IIC_0_BASEADDR
+
+#define DELAY 50000
+#define CW 1  // Clockwise
+#define CCW 0
+
+
+/********** AXI Peripheral Instances **********/
+XIic 		IICInst;		//Th instance of IIC
+XGpio FAN_OUT_ONE,FAN_OUT_SECOND,FAN_OUT_THIRD,FAN_OUT_FOURTH,FAN_OUT_FIFTH,FAN_OUT_TEMP,STEPPER_ONE,STEPPER_TWO,STEPPER_THREE,STEPPER_FOUR,STEPPER_FIVE,STEPPER_SIX,STEPPER_SEVEN,STEPPER_EIGHT,STEPPER_NINE;
+
+//static bool motor_running = false;
+static bool motor_running1 = false;
+static bool motor_running2 = false;
+static bool motor_running3 = false;
+static bool motor_running4 = false;
+static bool motor_running5 = false;
+static bool motor_running6 = false;
+static bool motor_running7 = false;
+static bool motor_running8 = false;
+static bool motor_running9 = false;
+static bool motor_running10 = false;
+int stepsPerRevolution = 6200;
+int step = 0;
+int direction = CW; // Set initial direction
+u32 data;
+//bool currentState = false; // Assume 0 = CW, 1 = CCW for initial state
+//bool previousState = !currentState; // Initialize to the opposite to ensure the first check runs
+
+/********** Function Prototypes **********/
+int	 do_init(void);
+int InitializeIIC(XIic *IicInstancePtr, u16 iicid);
+void delay(int n);
+
+void stepMotorOne(int step, int direction);
+void stepMotorTwo(int step, int direction);
+void stepMotorThree(int step, int direction);
+void stepMotorFour(int step, int direction);
+void stepMotorFive(int step, int direction);
+
+int gpioinit(XGpio *FAN_OUT_ONE, XGpio *FAN_OUT_SECOND, XGpio *FAN_OUT_THIRD, XGpio *FAN_OUT_FOURTH, XGpio *FAN_OUT_FIFTH, XGpio *FAN_OUT_TEMP, XGpio *STEPPER_ONE, XGpio *STEPPER_TWO, XGpio *STEPPER_THREE, XGpio *STEPPER_FOUR, XGpio *STEPPER_FIVE,XGpio *STEPPER_SIX,XGpio *STEPPER_SEVEN,XGpio *STEPPER_EIGHT,XGpio *STEPPER_NINE);
+
+void setting_direction(XGpio* FAN_OUT_ONE,XGpio* FAN_OUT_SECOND,XGpio* FAN_OUT_THIRD,XGpio* FAN_OUT_FOURTH,XGpio* FAN_OUT_FIFTH,XGpio* FAN_OUT_TEMP,
+							 XGpio* STEPPER_ONE,XGpio* STEPPER_TWO,XGpio* STEPPER_THREE,XGpio* STEPPER_FOUR,XGpio* STEPPER_FIVE, XGpio *STEPPER_SIX,XGpio *STEPPER_SEVEN,XGpio *STEPPER_EIGHT,XGpio *STEPPER_NINE);
+
+int main()
+{
+	int Status;
+
+	init_platform();
+	//bool lastState = false; // Keep track of the last state to detect changes
+	//bool actionPerformed = false; // Flag to indicate if the action for the current state has been performed
+	uint32_t sts = do_init();
+	if (XST_SUCCESS != sts){
+		xil_printf("FATAL(main): System initialization failed\r\n");
+		return 1;
+	}
+	Status = InitializeIIC(&IICInst, IIC_ID);
+	    if (Status != XST_SUCCESS) {
+	        xil_printf("IIC initialization failed!\r\n");
+	        return XST_FAILURE;
+	    }
+
+	//mpu6050_init(&IICInst);
+
+	gpioinit(&FAN_OUT_ONE,&FAN_OUT_SECOND,&FAN_OUT_THIRD,&FAN_OUT_FOURTH,&FAN_OUT_FIFTH,&FAN_OUT_TEMP,&STEPPER_ONE,&STEPPER_TWO,&STEPPER_THREE,&STEPPER_FOUR,&STEPPER_FIVE, &STEPPER_SIX,&STEPPER_SEVEN,&STEPPER_EIGHT,&STEPPER_NINE);
+
+	setting_direction(&FAN_OUT_ONE,&FAN_OUT_SECOND,&FAN_OUT_THIRD,&FAN_OUT_FOURTH,&FAN_OUT_FIFTH,&FAN_OUT_TEMP,&STEPPER_ONE,&STEPPER_TWO,&STEPPER_THREE,&STEPPER_FOUR,&STEPPER_FIVE, &STEPPER_SIX,&STEPPER_SEVEN,&STEPPER_EIGHT,&STEPPER_NINE);
+
+
+
+	while (1) {
+	    	       	u32 data_one = XGpio_DiscreteRead(&STEPPER_ONE, 1);
+	    	       	   // xil_printf("Hi! I am here....%u\r\n", data_one);
+
+	    	       		u32 data_two = XGpio_DiscreteRead(&STEPPER_TWO, 1);
+	    	       		 // xil_printf("Hi! I am here....%u\r\n", data_two);
+
+	    	       	 	u32 data_three = XGpio_DiscreteRead(&STEPPER_THREE, 1);
+	    	       		// xil_printf("Hi! I am here....%u\r\n", data_three);
+
+	    	       		 u32 data_four = XGpio_DiscreteRead(&STEPPER_FOUR, 1);
+	    	       		 //  xil_printf("Hi! I am here....%u\r\n", data_four);
+
+	    	       		u32 data_five = XGpio_DiscreteRead(&STEPPER_FIVE, 1);
+	    	       		// xil_printf("Hi! I am here...data_five.%u\r\n", data_five);
+
+	    	       		  u32 data_six = XGpio_DiscreteRead(&STEPPER_SIX, 1);
+	    	       		  //xil_printf("Hi! I am here..data_six..%u\r\n", data_six);
+
+	    	       		u32 data_seven = XGpio_DiscreteRead(&STEPPER_SEVEN, 1);
+	    	       		//	xil_printf("Hi! I am here..data_seven..%u\r\n", data_seven);
+
+	    	       		u32 data_eight = XGpio_DiscreteRead(&STEPPER_EIGHT, 1);
+	    	       		// xil_printf("Hi! I am here...data_eight.%u\r\n", data_eight);
+
+	    	       		u32 data_nine = XGpio_DiscreteRead(&STEPPER_NINE, 1);
+	    	       		//	    xil_printf("Hi! I am here...data_nine.%u\r\n", data_nine);
+	    	       		u32 data_ten = XGpio_DiscreteRead(&FAN_OUT_TEMP, 1);
+	    	       		// xil_printf("Hi! I am here..data_ten.%u\r\n", data_ten);
+
+	    	       	    if(data_one == 1){
+	    	       	    	motor_running1= true;
+	    	       	    	direction = CW;
+	    	       	    //xil_printf("Motor stopped \r\n");
+	    	       	    }else{
+	    	       	    	motor_running1= false;
+	    	       	    	XGpio_DiscreteWrite(&FAN_OUT_ONE,1,0);
+	    	       	    	// xil_printf("Motor stopped while recieving data one \r\n");
+	    	       	    	}
+
+
+	    	       	 if(data_two == 1){
+	    	       	    	motor_running2= true;
+	    	       	    	direction = CCW;
+	    	       	     // Motor control loop
+	    	       	    	//xil_printf("Motor started \r\n");
+	    	       	    }else {
+	    	       	    	motor_running2= false;
+	    	      	   XGpio_DiscreteWrite(&FAN_OUT_ONE,1,0);
+	    	      	 //  xil_printf("Motor stopped while recieving data two \r\n");
+	    	      	   }
+
+
+	    	       	 if(data_three == 1){
+	    	       		   motor_running3= true;
+	    	       		   direction = CW;
+	    	       		  //  xil_printf("Motor stopped \r\n");
+	    	       		    }else{
+	    	       		    motor_running3= false;
+	    	       		   XGpio_DiscreteWrite(&FAN_OUT_SECOND,1,0);
+	    	       		  // xil_printf("Motor stopped while recieving data three \r\n");
+	    	       		   }
+
+
+	    	       	if(data_four == 1){
+	    	       		   motor_running4= true;
+	    	       		   direction = CCW;
+	    	       		   // xil_printf("Motor stopped \r\n");
+	    	       		    }else{
+	    	       		      motor_running4= false;
+	    	       		   XGpio_DiscreteWrite(&FAN_OUT_SECOND,1,0);
+	    	       		  // xil_printf("Motor stopped while recieving data four \r\n");
+	    	       		   }
+
+
+
+					if(data_five == 1){
+    	       		   motor_running5= true;
+    	       		   direction = CW;
+    	       		  //  xil_printf("Motor stopped \r\n");
+    	       		    }else{
+    	       		    motor_running5= false;
+    	       		   XGpio_DiscreteWrite(&FAN_OUT_THIRD,1,0);
+    	       		  // xil_printf("Motor stopped while recieving data five \r\n");
+    	       		   }
+
+
+    	       	if(data_six == 1){
+    	       		   motor_running6= true;
+    	       		   direction = CCW;
+    	       		  //  xil_printf("Motor stopped \r\n");
+    	       		    }else{
+    	       		      motor_running6= false;
+    	       		   XGpio_DiscreteWrite(&FAN_OUT_THIRD,1,0);
+    	       		  // xil_printf("Motor stopped while recieving data six \r\n");
+    	       		   }
+
+    	    					if(data_seven == 1){
+    	    	    	       		   motor_running7= true;
+    	    	    	       		   direction = CW;
+    	    	    	       		   // xil_printf("Motor stopped \r\n");
+    	    	    	       		    }else{
+    	    	    	       		    motor_running7= false;
+    	    	    	       		   XGpio_DiscreteWrite(&FAN_OUT_FOURTH,1,0);
+    	    	    	       		  // xil_printf("Motor stopped while recieving data_seven \r\n");
+    	    	    	       		   }
+
+
+    	    	    	       	if(data_eight == 1){
+    	    	    	       		   motor_running8= true;
+    	    	    	       		   direction = CCW;
+    	    	    	       		  //  xil_printf("Motor stopped \r\n");
+    	    	    	       		    }else{
+    	    	    	       		      motor_running8= false;
+    	    	    	       		   XGpio_DiscreteWrite(&FAN_OUT_FOURTH,1,0);
+    	    	    	       		   //xil_printf("Motor stopped while recieving data_eight \r\n");
+    	    	    	       		   }
+
+    	    	    	    	if(data_nine == 1){
+    	    	    	    	    	       		   motor_running9= true;
+    	    	    	    	    	       		   direction = CW;
+    	    	    	    	    	       		   // xil_printf("Motor stopped \r\n");
+    	    	    	    	    	       		    }else{
+    	    	    	    	    	       		    motor_running9= false;
+    	    	    	    	    	       		   XGpio_DiscreteWrite(&FAN_OUT_FIFTH,1,0);
+    	    	    	    	    	       		  // xil_printf("Motor stopped while recieving data_nine \r\n");
+    	    	    	    	    	       		   }
+
+
+    	    	    	    	    	       	if(data_ten == 1){
+    	    	    	    	    	       		   motor_running10= true;
+    	    	    	    	    	       		   direction = CCW;
+    	    	    	    	    	       		  //  xil_printf("Motor stopped \r\n");
+    	    	    	    	    	       		    }else{
+    	    	    	    	    	       		      motor_running10= false;
+    	    	    	    	    	       		   XGpio_DiscreteWrite(&FAN_OUT_FIFTH,1,0);
+    	    	    	    	    	       		   //xil_printf("Motor stopped while recieving data_ten \r\n");
+    	    	    	    	    	       		   }
+
+
+
+	    	       	    if(motor_running1){
+	    	       	    		int i;
+
+	    	       	    		stepMotorOne(step % 4, direction);
+
+	    	       	                delay(DELAY);
+
+	    	       	                step++;
+	    	       	                if(step >= 4) step = 0;
+
+	    	       	                // Toggle direction after completing a revolution
+	    	       	                if(i % (stepsPerRevolution / 4) == 0 && i != 0) { // Adjust as necessary
+	    	       	                    direction = !direction;
+
+	    	       	            }
+	    	       	    } else if(motor_running2) {
+
+	    	       	    	int i;
+	    	       	    	stepMotorOne(step % 4, direction);
+	    	       	    		delay(DELAY);
+
+	    	       	    		step++;
+	    	       	    		if(step >= 4) step = 0;
+	    	       	    		if(i % (stepsPerRevolution / 4) == 0 && i != 0) { // Adjust as necessary
+	    	       	    		direction = !direction;
+	    	       	    }
+	    	       	    }
+
+	    	       	    else if (motor_running3) {
+
+	    	       	    	int i;
+	    	       	    	stepMotorTwo(step % 4, direction);
+	    	       	    		delay(DELAY);
+
+	    	       	    		step++;
+	    	       	    		if(step >= 4) step = 0;
+	    	       	    		if(i % (stepsPerRevolution / 4) == 0 && i != 0) { // Adjust as necessary
+	    	       	    		direction = !direction;
+	    	       	    }
+	    	       	    }
+
+	    	       	 else if (motor_running4) {
+
+	    	       	 	    	       	    	int i;
+	    	       	 	    	       	    	stepMotorTwo(step % 4, direction);
+	    	       	 	    	       	    		delay(DELAY);
+
+	    	       	 	    	       	    		step++;
+	    	       	 	    	       	    		if(step >= 4) step = 0;
+	    	       	 	    	       	    		if(i % (stepsPerRevolution / 4) == 0 && i != 0) { // Adjust as necessary
+	    	       	 	    	       	    		direction = !direction;
+	    	       	 	    	       	    }
+	    	       	 	    	       	    }
+
+
+
+
+
+	    	       	 	 	 	 	 	 	 	 	 else if (motor_running5) {
+
+	    	     	    	       	 	    	       	    	int i;
+	    	     	    	       	 	    	       	    	stepMotorThree(step % 4, direction);
+	    	     	    	       	 	    	       	    		delay(DELAY);
+
+	    	     	    	       	 	    	       	    		step++;
+	    	     	    	       	 	    	       	    		if(step >= 4) step = 0;
+	    	     	    	       	 	    	       	    		if(i % (stepsPerRevolution / 4) == 0 && i != 0) { // Adjust as necessary
+	    	     	    	       	 	    	       	    		direction = !direction;
+	    	     	    	       	 	    	       	    }
+	    	     	    	       	 	    	       	    }
+
+	    	     										else if (motor_running6) {
+
+	    	     	    	       	 	    	       	    	int i;
+	    	     	    	       	 	    	       	    	stepMotorThree(step % 4, direction);
+	    	     	    	       	 	    	       	    		delay(DELAY);
+
+	    	     	    	       	 	    	       	    		step++;
+	    	     	    	       	 	    	       	    		if(step >= 4) step = 0;
+	    	     	    	       	 	    	       	    		if(i % (stepsPerRevolution / 4) == 0 && i != 0) { // Adjust as necessary
+	    	     	    	       	 	    	       	    		direction = !direction;
+	    	     	    	       	 	    	       	    }
+	    	     	    	       	 	    	       	    }
+
+
+	    	     										else if (motor_running7) {
+
+	    	     											    	       	 	  int i;
+	    	     											  stepMotorFour(step % 4, direction);
+	    	     											    	       delay(DELAY);
+
+	    	     											    step++;
+	    	     											    	 if(step >= 4) step = 0;
+	    	     											    	     if(i % (stepsPerRevolution / 4) == 0 && i != 0) { // Adjust as necessary
+	    	     											    	     	direction = !direction;
+	    	     											    	       	 	     }
+	    	     											    	       	 	   }
+
+	    	     									else if (motor_running8) {
+
+	    	     											    	      int i;
+	    	     											    	       	stepMotorFour(step % 4, direction);
+	    	     											    	       	 	    	 delay(DELAY);
+
+	    	     											    	       	 step++;
+	    	     											    	       	 	    	  if(step >= 4) step = 0;
+	    	     											    	       	 	    	    if(i % (stepsPerRevolution / 4) == 0 && i != 0) { // Adjust as necessary
+	    	     											    	       	 	    	       	    		direction = !direction;
+	    	     											    	       	 	    	       	    }
+	    	     											    	       	 	    	       	    }
+	    	     									else if (motor_running9) {
+
+	    	     									    	       	 	    	       	    	int i;
+	    	     									    	       	 	    	       	    	stepMotorFive(step % 4, direction);
+	    	     									    	       	 	    	       	    		delay(DELAY);
+
+	    	     									    	       	 	    	       	    		step++;
+	    	     									    	       	 	    	       	    		if(step >= 4) step = 0;
+	    	     									    	       	 	    	       	    		if(i % (stepsPerRevolution / 4) == 0 && i != 0) { // Adjust as necessary
+	    	     									    	       	 	    	       	    		direction = !direction;
+	    	     									    	       	 	    	       	    }
+	    	     									    	       	 	    	       	    }
+
+
+	    	     																			else if (motor_running10) {
+
+	    	     									    	       	 	    	       	    	int i;
+	    	     									    	       	 	    	       	    	stepMotorFive(step % 4, direction);
+	    	     									    	       	 	    	       	    		delay(DELAY);
+
+	    	     									    	       	 	    	       	    		step++;
+	    	     									    	       	 	    	       	    		if(step >= 4) step = 0;
+	    	     									    	       	 	    	       	    		if(i % (stepsPerRevolution / 4) == 0 && i != 0) { // Adjust as necessary
+	    	     									    	       	 	    	       	    		direction = !direction;
+	    	     									    	       	 	    	       	    }
+	    	     									    	       	 	    	       	    }
+
+
+
+	    	}
+
+	    cleanup_platform();
+	    return 0;
+}
+
+
+int	 do_init(void) {
+	uint32_t status;
+
+	// initialize the Nexys4 driver
+	status = NX4IO_initialize(N4IO_BASEADDR);
+	if (status != XST_SUCCESS){
+		return XST_FAILURE;
+	}
+      return XST_SUCCESS;
+}
+
+ int InitializeIIC(XIic *IicInstancePtr, u16 iicid) {
+
+     xil_printf("IIC Initialized Successfully\r\n");
+
+     return XST_SUCCESS;
+ }
+
+ int gpioinit(XGpio *FAN_OUT_ONE, XGpio *FAN_OUT_SECOND, XGpio *FAN_OUT_THIRD, XGpio *FAN_OUT_FOURTH, XGpio *FAN_OUT_FIFTH, XGpio *FAN_OUT_TEMP, XGpio *STEPPER_ONE, XGpio *STEPPER_TWO, XGpio *STEPPER_THREE, XGpio *STEPPER_FOUR, XGpio *STEPPER_FIVE,XGpio *STEPPER_SIX,XGpio *STEPPER_SEVEN,XGpio *STEPPER_EIGHT,XGpio *STEPPER_NINE)
+ 		{
+ 			int Status;
+
+ 		// Initialize FAN_OUT_ONE GPIO instance and check status
+ 			Status = XGpio_Initialize(FAN_OUT_ONE, XPAR_GPIO_1_DEVICE_ID);
+ 		if (Status != XST_SUCCESS) {
+ 			xil_printf("ERROR: FAN_OUT_ONE GPIO Initialization failed with status %d\r\n", Status);
+ 			return XST_FAILURE;
+ 	        }
+ 	//	xil_printf(" FAN_OUT_ONE GPIO Initialization success");
+
+ 			// Initialize FAN_OUT_SECOND GPIO instance and check status
+ 			Status = XGpio_Initialize(FAN_OUT_SECOND, XPAR_GPIO_0_DEVICE_ID);
+ 		if (Status != XST_SUCCESS) {
+ 			xil_printf("ERROR: FAN_OUT_SECOND GPIO Initialization failed with status %d\r\n", Status);
+ 			return XST_FAILURE;
+ 	        }
+ 	//	xil_printf(" FAN_OUT_TWO GPIO Initialization success");
+
+ 			// Initialize FAN_OUT_THIRD GPIO instance and check status
+ 			Status = XGpio_Initialize(FAN_OUT_THIRD, XPAR_GPIO_7_DEVICE_ID);
+ 		if (Status != XST_SUCCESS) {
+ 			xil_printf("ERROR: FAN_OUT_THIRD GPIO Initialization failed with status %d\r\n", Status);
+ 			return XST_FAILURE;
+ 	        }
+ 	//	xil_printf(" FAN_OUT_THREE GPIO Initialization success");
+
+ 			// Initialize FAN_OUT_FOURTH GPIO instance and check status
+ 			Status = XGpio_Initialize(FAN_OUT_FOURTH, XPAR_GPIO_8_DEVICE_ID);
+ 		if (Status != XST_SUCCESS) {
+ 			xil_printf("ERROR: FAN_OUT_FOURTH GPIO Initialization failed with status %d\r\n", Status);
+ 			return XST_FAILURE;
+ 	        }
+ 	//	xil_printf(" FAN_OUT_FOUR GPIO Initialization success");
+
+ 			// Initialize FAN_OUT_FIFTH GPIO instance and check status
+ 			Status = XGpio_Initialize(FAN_OUT_FIFTH, XPAR_GPIO_9_DEVICE_ID);
+ 		if (Status != XST_SUCCESS) {
+ 			xil_printf("ERROR: FAN_OUT_FIFTH GPIO Initialization failed with status %d\r\n", Status);
+ 			return XST_FAILURE;
+ 	        }
+ 	//xil_printf(" FAN_OUT_FIVE GPIO Initialization success");
+
+ 			// Initialize FAN_OUT_TEMP GPIO instance and check status
+ 			Status = XGpio_Initialize(FAN_OUT_TEMP, XPAR_GPIO_10_DEVICE_ID);
+ 		if (Status != XST_SUCCESS) {
+ 			xil_printf("ERROR: FAN_OUT_TEMP GPIO Initialization failed with status %d\r\n", Status);
+ 			return XST_FAILURE;
+ 	        }
+ 	//	xil_printf(" FAN_OUT_TEMP GPIO Initialization success");
+
+ 			// Initialize STEPPER_ONE GPIO instance and check status
+ 			Status = XGpio_Initialize(STEPPER_ONE, XPAR_GPIO_2_DEVICE_ID);
+ 		if (Status != XST_SUCCESS) {
+ 			xil_printf("ERROR: STEPPER_ONE GPIO Initialization failed with status %d\r\n", Status);
+ 			return XST_FAILURE;
+ 	        }
+ 	//	xil_printf(" STEPPER_ONE GPIO Initialization success");
+
+ 			// Initialize STEPPER_TWO GPIO instance and check status
+ 			Status = XGpio_Initialize(STEPPER_TWO, XPAR_GPIO_3_DEVICE_ID);
+ 		if (Status != XST_SUCCESS) {
+ 			xil_printf("ERROR: STEPPER_TWO GPIO Initialization failed with status %d\r\n", Status);
+ 			return XST_FAILURE;
+ 	        }
+ 	//	xil_printf(" STEPPER_TWO GPIO Initialization success");
+
+ 			// Initialize STEPPER_THREE GPIO instance and check status
+ 			Status = XGpio_Initialize(STEPPER_THREE, XPAR_GPIO_4_DEVICE_ID);
+ 		if (Status != XST_SUCCESS) {
+ 			xil_printf("ERROR: STEPPER_THREE GPIO Initialization failed with status %d\r\n", Status);
+ 			return XST_FAILURE;
+ 	        }
+ 	//	xil_printf(" STEPPER_THREE GPIO Initialization success");
+
+ 			// Initialize STEPPER_FOUR GPIO instance and check status
+ 			Status = XGpio_Initialize(STEPPER_FOUR, XPAR_GPIO_5_DEVICE_ID);
+ 		if (Status != XST_SUCCESS) {
+ 			xil_printf("ERROR: STEPPER_FOUR GPIO Initialization failed with status %d\r\n", Status);
+ 			return XST_FAILURE;
+ 	        }
+ 	//	xil_printf(" STEPPER_FOUR GPIO Initialization success");
+
+ 			// Initialize STEPPER_FIVE GPIO instance and check status
+ 			Status = XGpio_Initialize(STEPPER_FIVE, XPAR_GPIO_6_DEVICE_ID);
+ 		if (Status != XST_SUCCESS) {
+ 			xil_printf("ERROR: STEPPER_FIVE GPIO Initialization failed with status %d\r\n", Status);
+ 			return XST_FAILURE;
+ 	        }
+ 	//	xil_printf(" STEPPER_FIVE GPIO Initialization success");
+
+ 		// Initialize STEPPER_SIX GPIO instance and check status
+ 		 			Status = XGpio_Initialize(STEPPER_SIX, XPAR_GPIO_11_DEVICE_ID);
+ 		 		if (Status != XST_SUCCESS) {
+ 		 			xil_printf("ERROR: STEPPER_SIX GPIO Initialization failed with status %d\r\n", Status);
+ 		 			return XST_FAILURE;
+ 		 	        }
+ 		 	//	xil_printf(" STEPPER_SIX GPIO Initialization success");
+
+
+ 		 		// Initialize STEPPER_SEVEN GPIO instance and check status
+ 		 		 			Status = XGpio_Initialize(STEPPER_SEVEN, XPAR_GPIO_12_DEVICE_ID);
+ 		 		 		if (Status != XST_SUCCESS) {
+ 		 		 			xil_printf("ERROR: STEPPER_SEVEN GPIO Initialization failed with status %d\r\n", Status);
+ 		 		 			return XST_FAILURE;
+ 		 		 	        }
+ 		 		 	//	xil_printf(" STEPPER_SEVEN GPIO Initialization success");
+
+ 		 			// Initialize STEPPER_EIGHT GPIO instance and check status
+ 		 		 			Status = XGpio_Initialize(STEPPER_EIGHT, XPAR_GPIO_13_DEVICE_ID);
+ 		 		 		if (Status != XST_SUCCESS) {
+ 		 		 			xil_printf("ERROR: STEPPER_EIGHT GPIO Initialization failed with status %d\r\n", Status);
+ 		 		 			return XST_FAILURE;
+ 		 		 	        }
+ 		 		 	//	xil_printf(" STEPPER_EIGHT GPIO Initialization success");
+
+ 		 		 		// Initialize STEPPER_NINE GPIO instance and check status
+ 		 		 		 			Status = XGpio_Initialize(STEPPER_NINE, XPAR_GPIO_14_DEVICE_ID);
+ 		 		 		 		if (Status != XST_SUCCESS) {
+ 		 		 		 			xil_printf("ERROR: STEPPER_NINE GPIO Initialization failed with status %d\r\n", Status);
+ 		 		 		 			return XST_FAILURE;
+ 		 		 		 	        }
+ 		 		 		 	//	xil_printf(" STEPPER_NINE GPIO Initialization success");
+
+ 	}
+
+
+ void setting_direction(XGpio* FAN_OUT_ONE,XGpio* FAN_OUT_SECOND,XGpio* FAN_OUT_THIRD,XGpio* FAN_OUT_FOURTH,XGpio* FAN_OUT_FIFTH,XGpio* FAN_OUT_TEMP,
+ 							   XGpio* STEPPER_ONE,XGpio* STEPPER_TWO,XGpio* STEPPER_THREE,XGpio* STEPPER_FOUR,XGpio* STEPPER_FIVE,XGpio* STEPPER_SIX, XGpio *STEPPER_SEVEN,XGpio *STEPPER_EIGHT,XGpio *STEPPER_NINE)
+ 		{
+ 			// Setting the direction GPIO to output
+ 			XGpio_SetDataDirection(FAN_OUT_ONE, 1, 0x00);
+
+ 	        XGpio_SetDataDirection(FAN_OUT_SECOND, 1, 0x00);
+
+ 			XGpio_SetDataDirection(FAN_OUT_THIRD, 1, 0x00);
+
+ 	        XGpio_SetDataDirection(FAN_OUT_FOURTH, 1, 0x00);
+
+ 			XGpio_SetDataDirection(FAN_OUT_FIFTH, 1, 0x00);
+
+ 	        XGpio_SetDataDirection(FAN_OUT_TEMP, 1, 0xFFFFFFFF);
+
+
+
+ 			// Setting the direction GPIO to input
+
+ 			XGpio_SetDataDirection(STEPPER_ONE, 1, 0xFFFFFFFF);
+
+ 	        XGpio_SetDataDirection(STEPPER_TWO, 1, 0xFFFFFFFF);
+
+ 			XGpio_SetDataDirection(STEPPER_THREE, 1, 0xFFFFFFFF);
+
+ 	        XGpio_SetDataDirection(STEPPER_FOUR, 1, 0xFFFFFFFF);
+
+ 			XGpio_SetDataDirection(STEPPER_FIVE, 1, 0xFFFFFFFF);
+
+ 			XGpio_SetDataDirection(STEPPER_SIX, 1, 0xFFFFFFFF);
+ 			//xil_printf("Hi, the directions are set");
+
+ 			XGpio_SetDataDirection(STEPPER_SEVEN, 1, 0xFFFFFFFF);
+
+
+ 		 	        XGpio_SetDataDirection(STEPPER_EIGHT, 1, 0xFFFFFFFF);
+
+ 		 	  	XGpio_SetDataDirection(STEPPER_NINE, 1, 0xFFFFFFFF);
+
+
+
+ 	}
+
+
+ void delay(int n) {
+     int i;
+     for(i = 0; i < n; i++) {
+         // NOP (No Operation) - simple delay
+     }
+ }
+
+ void stepMotorOne(int step, int direction) {
+     static const int sequence[][4] = {
+         {0b0001, 0b0010, 0b0100, 0b1000}, // CW sequence
+         {0b1000, 0b0100, 0b0010, 0b0001}  // CCW sequence
+     };
+
+     int index = direction == CW ? 0 : 1; // Select sequence based on direction
+     // Write the step to GPIO
+     XGpio_DiscreteWrite(&FAN_OUT_ONE, 1, sequence[index][step]);
+ }
+
+ void stepMotorTwo(int step, int direction) {
+      static const int sequence[][4] = {
+          {0b0001, 0b0010, 0b0100, 0b1000}, // CW sequence
+          {0b1000, 0b0100, 0b0010, 0b0001}  // CCW sequence
+      };
+
+      int index = direction == CW ? 0 : 1; // Select sequence based on direction
+      // Write the step to GPIO
+      XGpio_DiscreteWrite(&FAN_OUT_SECOND, 1, sequence[index][step]);
+  }
+
+ void stepMotorThree(int step, int direction) {
+       static const int sequence[][4] = {
+           {0b0001, 0b0010, 0b0100, 0b1000}, // CW sequence
+           {0b1000, 0b0100, 0b0010, 0b0001}  // CCW sequence
+       };
+
+       int index = direction == CW ? 0 : 1; // Select sequence based on direction
+       // Write the step to GPIO
+       XGpio_DiscreteWrite(&FAN_OUT_THIRD, 1, sequence[index][step]);
+   }
+
+
+ void stepMotorFour(int step, int direction) {
+        static const int sequence[][4] = {
+            {0b0001, 0b0010, 0b0100, 0b1000}, // CW sequence
+            {0b1000, 0b0100, 0b0010, 0b0001}  // CCW sequence
+        };
+
+        int index = direction == CW ? 0 : 1; // Select sequence based on direction
+        // Write the step to GPIO
+        XGpio_DiscreteWrite(&FAN_OUT_FOURTH, 1, sequence[index][step]);
+    }
+
+ void stepMotorFive(int step, int direction) {
+        static const int sequence[][4] = {
+            {0b0001, 0b0010, 0b0100, 0b1000}, // CW sequence
+            {0b1000, 0b0100, 0b0010, 0b0001}  // CCW sequence
+        };
+
+        int index = direction == CW ? 0 : 1; // Select sequence based on direction
+        // Write the step to GPIO
+        XGpio_DiscreteWrite(&FAN_OUT_FIFTH, 1, sequence[index][step]);
+    }

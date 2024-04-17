@@ -1,0 +1,31 @@
+#include <stdbool.h>
+#include "xparameters.h"
+#include "xstatus.h"
+#include "xgpio.h"
+#include "GPIO_ALL.h"
+#include "xil_printf.h"
+#include "xiic.h"
+#include "nexys4IO.h"
+#include "xuartlite_l.h"
+#include "xuartlite.h"
+#include "microblaze_sleep.h"
+
+#define DELAY 50000
+#define CW 1  // Clockwise
+#define CCW 0
+
+XGpio FAN_OUT_ONE;
+
+
+int Status;
+
+void initializeGpios() {
+    // Initialize FAN_OUT_ONE GPIO instance and check status
+    Status = XGpio_Initialize(&FAN_OUT_ONE, XPAR_GPIO_1_DEVICE_ID);
+
+
+    // Set data direction for each GPIO
+    setGpioDataDirection(&FAN_OUT_ONE, 0x00);
+
+}
+

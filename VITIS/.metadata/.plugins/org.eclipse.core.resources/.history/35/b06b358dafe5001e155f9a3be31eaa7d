@@ -1,0 +1,23 @@
+#include <stdbool.h>
+#include  "xparameters.h"
+#include  "xstatus.h"
+#include "xgpio.h"
+#include "GPIO_ALL.h"
+#include  "xil_printf.h"
+#include  "xiic.h"
+#include  "nexys4IO.h"
+#include  "xuartlite_l.h"
+#include  "xuartlite.h"
+#include "microblaze_sleep.h"\
+
+
+
+
+
+
+
+		
+
+
+		
+

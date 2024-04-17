@@ -1,0 +1,45 @@
+#include <stdbool.h>
+#include  "xparameters.h"
+#include  "xstatus.h"
+#include "xgpio.h"
+#include "GPIO_ALL.h"
+#include  "xil_printf.h"
+#include  "xiic.h"
+#include  "nexys4IO.h"
+#include  "xuartlite_l.h"
+#include  "xuartlite.h"
+#include "microblaze_sleep.h"\
+
+#define DELAY 50000
+#define CW 1  // Clockwise
+#define CCW 0
+
+XGpio FAN_OUT_ONE,FAN_OUT_SECOND,FAN_OUT_THIRD,FAN_OUT_FOURTH,FAN_OUT_FIFTH,FAN_OUT_TEMP,
+	  STEPPER_ONE,STEPPER_TWO,STEPPER_THREE,STEPPER_FOUR,STEPPER_FIVE;
+
+u32 data;
+
+
+
+void gpioinit(XGpio* FAN_OUT_ONE)
+		{
+			int Status;
+		// Initialize FAN_OUT_ONE GPIO instance and check status
+			Status = XGpio_Initialize(&FAN_OUT_ONE, XPAR_GPIO_1_DEVICE_ID);
+		if (Status != XST_SUCCESS) { 
+			xil_printf("ERROR: FAN_OUT_ONE GPIO Initialization failed with status %d\r\n", Status);
+			return XST_FAILURE;
+	        }
+	        xil_printf("FAN_OUT_ONE GPIO initialized successfully and base address is %x\r\n", FAN_OUT_ONE.BaseAddress);
+		}
+
+
+void setting_direction(XGpio* FAN_OUT_ONE)
+		{
+			// Setting the direction GPIO to output 
+			XGpio_SetDataDirection(&FAN_OUT_ONE, 1, 0x00);
+			
+	}
+			
+
+

@@ -1,0 +1,134 @@
+#include <stdbool.h>
+#include "xparameters.h"
+#include "xstatus.h"
+#include "xgpio.h"
+#include "GPIO_ALL.h"
+#include "xil_printf.h"
+#include "xiic.h"
+#include "nexys4IO.h"
+#include "xuartlite_l.h"
+#include "xuartlite.h"
+#include "microblaze_sleep.h"
+
+#define DELAY 50000
+#define CW 1  // Clockwise
+#define CCW 0
+
+XGpio FAN_OUT_ONE,
+ FAN_OUT_SECOND,
+ FAN_OUT_THIRD,
+ FAN_OUT_FOURT,
+ FAN_OUT_FIFTH,
+ FAN_OUT_TEMP,
+ STEPPER_ONE,
+ STEPPER_TWO,
+ STEPPER_THREE,
+ STEPPER_FOUR,
+ STEPPER_FIVE;
+
+
+int Status;
+
+void initializeGpios() {
+    // Initialize FAN_OUT_ONE GPIO instance and check status
+    Status = XGpio_Initialize(&FAN_OUT_ONE, XPAR_GPIO_1_DEVICE_ID);
+    if (Status != XST_SUCCESS) {
+        xil_printf("ERROR: FAN_OUT_ONE GPIO Initialization failed with status %d\r\n", Status);
+    } else {
+        xil_printf("FAN_OUT_ONE GPIO initialized successfully and base address is %x\r\n", FAN_OUT_ONE.BaseAddress);
+    }
+
+    // Initialize FAN_OUT_SECOND GPIO instance and check status
+    Status = XGpio_Initialize(&FAN_OUT_SECOND, XPAR_GPIO_0_DEVICE_ID);
+    if (Status != XST_SUCCESS) {
+        xil_printf("ERROR: FAN_OUT_SECOND GPIO Initialization failed with status %d\r\n", Status);
+    } else {
+        xil_printf("FAN_OUT_SECOND GPIO initialized successfully and base address is %x\r\n", FAN_OUT_SECOND.BaseAddress);
+    }
+
+    // Initialize FAN_OUT_THIRD GPIO instance and check status
+    Status = XGpio_Initialize(&FAN_OUT_THIRD, XPAR_GPIO_7_DEVICE_ID);
+    if (Status != XST_SUCCESS) {
+        xil_printf("ERROR: FAN_OUT_THIRD GPIO Initialization failed with status %d\r\n", Status);
+    } else {
+        xil_printf("FAN_OUT_THIRD GPIO initialized successfully and base address is %x\r\n", FAN_OUT_THIRD.BaseAddress);
+    }
+
+    // Initialize FAN_OUT_FOURTH GPIO instance and check status
+    Status = XGpio_Initialize(&FAN_OUT_FOURTH, XPAR_GPIO_8_DEVICE_ID);
+    if (Status != XST_SUCCESS) {
+        xil_printf("ERROR: FAN_OUT_FOURTH GPIO Initialization failed with status %d\r\n", Status);
+    } else {
+        xil_printf("FAN_OUT_FOURTH GPIO initialized successfully and base address is %x\r\n", FAN_OUT_FOURTH.BaseAddress);
+    }
+
+    // Initialize FAN_OUT_FIFTH GPIO instance and check status
+    Status = XGpio_Initialize(&FAN_OUT_FIFTH, XPAR_GPIO_9_DEVICE_ID);
+    if (Status != XST_SUCCESS) {
+        xil_printf("ERROR: FAN_OUT_FIFTH GPIO Initialization failed with status %d\r\n", Status);
+    } else {
+        xil_printf("FAN_OUT_FIFTH GPIO initialized successfully and base address is %x\r\n", FAN_OUT_FIFTH.BaseAddress);
+    }
+
+    // Initialize FAN_OUT_TEMP GPIO instance and check status
+    Status = XGpio_Initialize(&FAN_OUT_TEMP, XPAR_GPIO_10_DEVICE_ID);
+    if (Status != XST_SUCCESS) {
+        xil_printf("ERROR: FAN_OUT_TEMP GPIO Initialization failed with status %d\r\n", Status);
+    } else {
+        xil_printf("FAN_OUT_TEMP GPIO initialized successfully and base address is %x\r\n", FAN_OUT_TEMP.BaseAddress);
+    }
+
+    // Initialize STEPPER_ONE GPIO instance and check status
+    Status = XGpio_Initialize(&STEPPER_ONE, XPAR_GPIO_2_DEVICE_ID);
+    if (Status != XST_SUCCESS) {
+        xil_printf("ERROR: STEPPER_ONE GPIO Initialization failed with status %d\r\n", Status);
+    } else {
+        xil_printf("STEPPER_ONE GPIO initialized successfully and base address is %x\r\n", STEPPER_ONE.BaseAddress);
+    }
+
+    // Initialize STEPPER_TWO GPIO instance and check status
+    Status = XGpio_Initialize(&STEPPER_TWO, XPAR_GPIO_3_DEVICE_ID);
+    if (Status != XST_SUCCESS) {
+        xil_printf("ERROR: STEPPER_TWO GPIO Initialization failed with status %d\r\n", Status);
+    } else {
+        xil_printf("STEPPER_TWO GPIO initialized successfully and base address is %x\r\n", STEPPER_TWO.BaseAddress);
+    }
+
+    // Initialize STEPPER_THREE GPIO instance and check status
+    Status = XGpio_Initialize(&STEPPER_THREE, XPAR_GPIO_4_DEVICE_ID);
+    if (Status != XST_SUCCESS) {
+        xil_printf("ERROR: STEPPER_THREE GPIO Initialization failed with status %d\r\n", Status);
+    } else {
+        xil_printf("STEPPER_THREE GPIO initialized successfully and base address is %x\r\n", STEPPER_THREE.BaseAddress);
+    }
+
+    // Initialize STEPPER_FOUR GPIO instance and check status
+    Status = XGpio_Initialize(&STEPPER_FOUR, XPAR_GPIO_5_DEVICE_ID);
+    if (Status != XST_SUCCESS) {
+        xil_printf("ERROR: STEPPER_FOUR GPIO Initialization failed with status %d\r\n", Status);
+    } else {
+        xil_printf("STEPPER_FOUR GPIO initialized successfully and base address is %x\r\n", STEPPER_FOUR.BaseAddress);
+    }
+
+    // Initialize STEPPER_FIVE GPIO instance and check status
+    Status = XGpio_Initialize(&STEPPER_FIVE, XPAR_GPIO_6_DEVICE_ID);
+    if (Status != XST_SUCCESS) {
+        xil_printf("ERROR: STEPPER_FIVE GPIO Initialization failed with status %d\r\n", Status);
+    } else {
+        xil_printf("STEPPER_FIVE GPIO initialized successfully and base address is %x\r\n", STEPPER_FIVE.BaseAddress);
+    }
+
+    // Set data direction for each GPIO
+    setGpioDataDirection(&FAN_OUT_ONE, 0x00);
+    setGpioDataDirection(&FAN_OUT_SECOND, 0x00);
+    setGpioDataDirection(&FAN_OUT_THIRD, 0x00);
+    setGpioDataDirection(&FAN_OUT_FOURTH, 0x00);
+    setGpioDataDirection(&FAN_OUT_FIFTH, 0x00);
+    setGpioDataDirection(&FAN_OUT_TEMP, 0x00);
+    setGpioDataDirection(&STEPPER_ONE, 0x00);
+    setGpioDataDirection(&STEPPER_TWO, 0x00);
+    setGpioDataDirection(&STEPPER_THREE, 0x00);
+    setGpioDataDirection(&STEPPER_FOUR, 0x00);
+    setGpioDataDirection(&STEPPER_FIVE, 0x00);
+}
+

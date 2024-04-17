@@ -1,0 +1,29 @@
+vhdl xil_defaultlib  \
+"../../../bd/embsys/ip/embsys_microblaze_0_3/sim/embsys_microblaze_0_3.vhd" \
+"../../../bd/embsys/ip/embsys_dlmb_v10_3/sim/embsys_dlmb_v10_3.vhd" \
+"../../../bd/embsys/ip/embsys_ilmb_v10_3/sim/embsys_ilmb_v10_3.vhd" \
+"../../../bd/embsys/ip/embsys_dlmb_bram_if_cntlr_3/sim/embsys_dlmb_bram_if_cntlr_3.vhd" \
+"../../../bd/embsys/ip/embsys_ilmb_bram_if_cntlr_3/sim/embsys_ilmb_bram_if_cntlr_3.vhd" \
+"../../../bd/embsys/ip/embsys_microblaze_0_axi_intc_2/sim/embsys_microblaze_0_axi_intc_2.vhd" \
+"../../../bd/embsys/ip/embsys_mdm_1_2/sim/embsys_mdm_1_2.vhd" \
+"../../../bd/embsys/ip/embsys_rst_clk_wiz_1_100M_3/sim/embsys_rst_clk_wiz_1_100M_3.vhd" \
+"../../../bd/embsys/ip/embsys_axi_timer_0_2/sim/embsys_axi_timer_0_2.vhd" \
+"../../../bd/embsys/ip/embsys_axi_uartlite_0_2/sim/embsys_axi_uartlite_0_2.vhd" \
+"../../../bd/embsys/ip/embsys_axi_iic_0_3/sim/embsys_axi_iic_0_3.vhd" \
+"../../../bd/embsys/ip/embsys_axi_gpio_0_0/sim/embsys_axi_gpio_0_0.vhd" \
+"../../../bd/embsys/ip/embsys_axi_gpio_1_0/sim/embsys_axi_gpio_1_0.vhd" \
+"../../../bd/embsys/ip/embsys_axi_gpio_2_0/sim/embsys_axi_gpio_2_0.vhd" \
+"../../../bd/embsys/ip/embsys_axi_gpio_3_0/sim/embsys_axi_gpio_3_0.vhd" \
+"../../../bd/embsys/ip/embsys_axi_gpio_4_0/sim/embsys_axi_gpio_4_0.vhd" \
+"../../../bd/embsys/ip/embsys_axi_gpio_5_0/sim/embsys_axi_gpio_5_0.vhd" \
+"../../../bd/embsys/ip/embsys_axi_gpio_6_0/sim/embsys_axi_gpio_6_0.vhd" \
+"../../../bd/embsys/ip/embsys_axi_gpio_7_0/sim/embsys_axi_gpio_7_0.vhd" \
+"../../../bd/embsys/ip/embsys_axi_gpio_8_0/sim/embsys_axi_gpio_8_0.vhd" \
+"../../../bd/embsys/ip/embsys_axi_gpio_9_0/sim/embsys_axi_gpio_9_0.vhd" \
+"../../../bd/embsys/ip/embsys_axi_gpio_10_0/sim/embsys_axi_gpio_10_0.vhd" \
+"../../../bd/embsys/ip/embsys_axi_gpio_11_0/sim/embsys_axi_gpio_11_0.vhd" \
+"../../../bd/embsys/ip/embsys_axi_gpio_12_0/sim/embsys_axi_gpio_12_0.vhd" \
+"../../../bd/embsys/ip/embsys_axi_gpio_13_0/sim/embsys_axi_gpio_13_0.vhd" \
+"../../../bd/embsys/ip/embsys_axi_gpio_14_0/sim/embsys_axi_gpio_14_0.vhd" \
+
+nosort

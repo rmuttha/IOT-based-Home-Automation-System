@@ -1,0 +1,684 @@
+
+*** Running vivado
+    with args -log nexysa7fpga.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source nexysa7fpga.tcl
+
+
+
+****** Vivado v2022.2 (64-bit)
+  **** SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+  **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source nexysa7fpga.tcl -notrace
+create_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:11 . Memory (MB): peak = 1001.828 ; gain = 115.828
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'e:/EMBEDDED_DESIGN/PROJECT_1_DELIVERABLES/ece544w24_proj1_release_1_0/IP/ece544ip_w24'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'F:/Vivado/2022.2/data/ip'.
+add_files: Time (s): cpu = 00:00:06 ; elapsed = 00:00:23 . Memory (MB): peak = 1054.488 ; gain = 24.090
+Command: read_checkpoint -auto_incremental -incremental E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.srcs/utils_1/imports/synth_1/nexysa7fpga.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.srcs/utils_1/imports/synth_1/nexysa7fpga.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top nexysa7fpga -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 7796
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [F:/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1885.898 ; gain = 408.531
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'nexysa7fpga' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/ece544w24_project_2_rel/Proj2_rel/nexysa7fpga.sv:8]
+INFO: [Synth 8-6157] synthesizing module 'embsys_wrapper' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/hdl/embsys_wrapper.v:12]
+INFO: [Synth 8-6157] synthesizing module 'IOBUF' [F:/Vivado/2022.2/scripts/rt/data/unisim_comp.v:75902]
+INFO: [Synth 8-6155] done synthesizing module 'IOBUF' (0#1) [F:/Vivado/2022.2/scripts/rt/data/unisim_comp.v:75902]
+INFO: [Synth 8-6157] synthesizing module 'embsys' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:12]
+INFO: [Synth 8-6157] synthesizing module 'embsys_axi_gpio_0_0' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_gpio_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_axi_gpio_0_0' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_gpio_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'embsys_axi_gpio_1_0' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_gpio_1_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_axi_gpio_1_0' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_gpio_1_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'embsys_axi_gpio_10_0' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_gpio_10_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_axi_gpio_10_0' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_gpio_10_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'embsys_axi_gpio_11_0' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_gpio_11_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_axi_gpio_11_0' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_gpio_11_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'embsys_axi_gpio_12_0' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_gpio_12_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_axi_gpio_12_0' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_gpio_12_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'embsys_axi_gpio_13_0' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_gpio_13_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_axi_gpio_13_0' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_gpio_13_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'embsys_axi_gpio_14_0' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_gpio_14_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_axi_gpio_14_0' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_gpio_14_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'embsys_axi_gpio_2_0' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_gpio_2_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_axi_gpio_2_0' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_gpio_2_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'embsys_axi_gpio_3_0' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_gpio_3_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_axi_gpio_3_0' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_gpio_3_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'embsys_axi_gpio_4_0' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_gpio_4_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_axi_gpio_4_0' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_gpio_4_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'embsys_axi_gpio_5_0' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_gpio_5_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_axi_gpio_5_0' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_gpio_5_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'embsys_axi_gpio_6_0' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_gpio_6_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_axi_gpio_6_0' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_gpio_6_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'embsys_axi_gpio_7_0' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_gpio_7_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_axi_gpio_7_0' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_gpio_7_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'embsys_axi_gpio_8_0' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_gpio_8_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_axi_gpio_8_0' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_gpio_8_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'embsys_axi_gpio_9_0' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_gpio_9_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_axi_gpio_9_0' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_gpio_9_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'embsys_axi_iic_0_3' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_iic_0_3_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_axi_iic_0_3' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_iic_0_3_stub.v:5]
+WARNING: [Synth 8-7071] port 'iic2intc_irpt' of module 'embsys_axi_iic_0_3' is unconnected for instance 'axi_iic_0' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:1051]
+WARNING: [Synth 8-7071] port 'gpo' of module 'embsys_axi_iic_0_3' is unconnected for instance 'axi_iic_0' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:1051]
+WARNING: [Synth 8-7023] instance 'axi_iic_0' of module 'embsys_axi_iic_0_3' has 27 connections declared, but only 25 given [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:1051]
+INFO: [Synth 8-6157] synthesizing module 'embsys_axi_timer_0_2' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_timer_0_2_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_axi_timer_0_2' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_timer_0_2_stub.v:5]
+WARNING: [Synth 8-7071] port 'generateout0' of module 'embsys_axi_timer_0_2' is unconnected for instance 'axi_timer_0' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:1077]
+WARNING: [Synth 8-7071] port 'generateout1' of module 'embsys_axi_timer_0_2' is unconnected for instance 'axi_timer_0' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:1077]
+WARNING: [Synth 8-7071] port 'pwm0' of module 'embsys_axi_timer_0_2' is unconnected for instance 'axi_timer_0' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:1077]
+WARNING: [Synth 8-7023] instance 'axi_timer_0' of module 'embsys_axi_timer_0_2' has 26 connections declared, but only 23 given [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:1077]
+INFO: [Synth 8-6157] synthesizing module 'embsys_axi_uartlite_0_2' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_uartlite_0_2_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_axi_uartlite_0_2' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_axi_uartlite_0_2_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'embsys_bidirec_0_0' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_bidirec_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_bidirec_0_0' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_bidirec_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'embsys_bidirec_1_0' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_bidirec_1_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_bidirec_1_0' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_bidirec_1_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'embsys_clk_wiz_1_3' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_clk_wiz_1_3_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_clk_wiz_1_3' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_clk_wiz_1_3_stub.v:5]
+WARNING: [Synth 8-7071] port 'clk_out2' of module 'embsys_clk_wiz_1_3' is unconnected for instance 'clk_wiz_1' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:1134]
+WARNING: [Synth 8-7023] instance 'clk_wiz_1' of module 'embsys_clk_wiz_1_3' has 5 connections declared, but only 4 given [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:1134]
+INFO: [Synth 8-6157] synthesizing module 'embsys_mdm_1_2' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_mdm_1_2_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_mdm_1_2' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_mdm_1_2_stub.v:5]
+WARNING: [Synth 8-7071] port 'Interrupt' of module 'embsys_mdm_1_2' is unconnected for instance 'mdm_1' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:1139]
+WARNING: [Synth 8-7023] instance 'mdm_1' of module 'embsys_mdm_1_2' has 30 connections declared, but only 29 given [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:1139]
+INFO: [Synth 8-6157] synthesizing module 'embsys_microblaze_0_3' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_microblaze_0_3_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_microblaze_0_3' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_microblaze_0_3_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'embsys_microblaze_0_axi_intc_2' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_microblaze_0_axi_intc_2_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_microblaze_0_axi_intc_2' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_microblaze_0_axi_intc_2_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'embsys_microblaze_0_axi_periph_2' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:1761]
+INFO: [Synth 8-6157] synthesizing module 'i00_couplers_imp_PMIGPX' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:5151]
+INFO: [Synth 8-6155] done synthesizing module 'i00_couplers_imp_PMIGPX' (0#1) [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:5151]
+INFO: [Synth 8-6157] synthesizing module 'i01_couplers_imp_1V78KVO' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:5297]
+INFO: [Synth 8-6155] done synthesizing module 'i01_couplers_imp_1V78KVO' (0#1) [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:5297]
+INFO: [Synth 8-6157] synthesizing module 'i02_couplers_imp_1P1BFWM' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:5443]
+INFO: [Synth 8-6155] done synthesizing module 'i02_couplers_imp_1P1BFWM' (0#1) [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:5443]
+INFO: [Synth 8-6157] synthesizing module 'm00_couplers_imp_OEGTNN' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:5589]
+INFO: [Synth 8-6155] done synthesizing module 'm00_couplers_imp_OEGTNN' (0#1) [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:5589]
+INFO: [Synth 8-6157] synthesizing module 'm01_couplers_imp_1X988FM' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:5721]
+INFO: [Synth 8-6155] done synthesizing module 'm01_couplers_imp_1X988FM' (0#1) [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:5721]
+INFO: [Synth 8-6157] synthesizing module 'm02_couplers_imp_1LSUSSG' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:5853]
+INFO: [Synth 8-6155] done synthesizing module 'm02_couplers_imp_1LSUSSG' (0#1) [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:5853]
+INFO: [Synth 8-6157] synthesizing module 'm03_couplers_imp_Z0V64X' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:5985]
+INFO: [Synth 8-6155] done synthesizing module 'm03_couplers_imp_Z0V64X' (0#1) [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:5985]
+INFO: [Synth 8-6157] synthesizing module 'm04_couplers_imp_10K59R8' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:6117]
+INFO: [Synth 8-6155] done synthesizing module 'm04_couplers_imp_10K59R8' (0#1) [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:6117]
+INFO: [Synth 8-6157] synthesizing module 'm05_couplers_imp_CO79RP' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:6249]
+INFO: [Synth 8-6155] done synthesizing module 'm05_couplers_imp_CO79RP' (0#1) [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:6249]
+INFO: [Synth 8-6157] synthesizing module 'm06_couplers_imp_17TSQV' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:6381]
+INFO: [Synth 8-6155] done synthesizing module 'm06_couplers_imp_17TSQV' (0#1) [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:6381]
+INFO: [Synth 8-6157] synthesizing module 'm07_couplers_imp_1B6JKGM' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:6527]
+INFO: [Synth 8-6155] done synthesizing module 'm07_couplers_imp_1B6JKGM' (0#1) [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:6527]
+INFO: [Synth 8-6157] synthesizing module 'm08_couplers_imp_A8EFSC' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:6659]
+INFO: [Synth 8-6155] done synthesizing module 'm08_couplers_imp_A8EFSC' (0#1) [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:6659]
+INFO: [Synth 8-6157] synthesizing module 'm09_couplers_imp_12FSMBH' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:6791]
+INFO: [Synth 8-6155] done synthesizing module 'm09_couplers_imp_12FSMBH' (0#1) [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:6791]
+INFO: [Synth 8-6157] synthesizing module 'm10_couplers_imp_1LSYS80' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:6923]
+INFO: [Synth 8-6155] done synthesizing module 'm10_couplers_imp_1LSYS80' (0#1) [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:6923]
+INFO: [Synth 8-6157] synthesizing module 'm11_couplers_imp_Z0XR01' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:7055]
+INFO: [Synth 8-6155] done synthesizing module 'm11_couplers_imp_Z0XR01' (0#1) [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:7055]
+INFO: [Synth 8-6157] synthesizing module 'm12_couplers_imp_OEKHZ7' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:7187]
+INFO: [Synth 8-6155] done synthesizing module 'm12_couplers_imp_OEKHZ7' (0#1) [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:7187]
+INFO: [Synth 8-6157] synthesizing module 'm13_couplers_imp_1X9AI6Q' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:7319]
+INFO: [Synth 8-6155] done synthesizing module 'm13_couplers_imp_1X9AI6Q' (0#1) [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:7319]
+INFO: [Synth 8-6157] synthesizing module 'm14_couplers_imp_17X7MV' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:7451]
+INFO: [Synth 8-6155] done synthesizing module 'm14_couplers_imp_17X7MV' (0#1) [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:7451]
+INFO: [Synth 8-6157] synthesizing module 'm15_couplers_imp_1B6LKS6' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:7583]
+INFO: [Synth 8-6155] done synthesizing module 'm15_couplers_imp_1B6LKS6' (0#1) [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:7583]
+INFO: [Synth 8-6157] synthesizing module 'm16_couplers_imp_10K8ADG' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:7715]
+INFO: [Synth 8-6155] done synthesizing module 'm16_couplers_imp_10K8ADG' (0#1) [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:7715]
+INFO: [Synth 8-6157] synthesizing module 'm17_couplers_imp_CO8VTH' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:7847]
+INFO: [Synth 8-6155] done synthesizing module 'm17_couplers_imp_CO8VTH' (0#1) [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:7847]
+INFO: [Synth 8-6157] synthesizing module 'm18_couplers_imp_19AY88F' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:7979]
+INFO: [Synth 8-6155] done synthesizing module 'm18_couplers_imp_19AY88F' (0#1) [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:7979]
+INFO: [Synth 8-6157] synthesizing module 'm19_couplers_imp_3NQ1MM' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:8111]
+INFO: [Synth 8-6155] done synthesizing module 'm19_couplers_imp_3NQ1MM' (0#1) [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:8111]
+INFO: [Synth 8-6157] synthesizing module 'm20_couplers_imp_10KL6N8' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:8243]
+INFO: [Synth 8-6155] done synthesizing module 'm20_couplers_imp_10KL6N8' (0#1) [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:8243]
+INFO: [Synth 8-6157] synthesizing module 'm21_couplers_imp_CNZ4OL' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:8375]
+INFO: [Synth 8-6155] done synthesizing module 'm21_couplers_imp_CNZ4OL' (0#1) [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:8375]
+INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_QRRRG2' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:8741]
+INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_QRRRG2' (0#1) [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:8741]
+INFO: [Synth 8-6157] synthesizing module 'embsys_tier2_xbar_0_0' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_tier2_xbar_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_tier2_xbar_0_0' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_tier2_xbar_0_0_stub.v:5]
+WARNING: [Synth 8-689] width (21) of port connection 'm_axi_arprot' does not match port width (24) of module 'embsys_tier2_xbar_0_0' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:4993]
+WARNING: [Synth 8-689] width (21) of port connection 'm_axi_awprot' does not match port width (24) of module 'embsys_tier2_xbar_0_0' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:4997]
+INFO: [Synth 8-6157] synthesizing module 'embsys_tier2_xbar_1_0' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_tier2_xbar_1_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_tier2_xbar_1_0' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_tier2_xbar_1_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'm_axi_awprot' of module 'embsys_tier2_xbar_1_0' is unconnected for instance 'tier2_xbar_1' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:5030]
+WARNING: [Synth 8-7071] port 'm_axi_arprot' of module 'embsys_tier2_xbar_1_0' is unconnected for instance 'tier2_xbar_1' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:5030]
+WARNING: [Synth 8-7023] instance 'tier2_xbar_1' of module 'embsys_tier2_xbar_1_0' has 40 connections declared, but only 38 given [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:5030]
+INFO: [Synth 8-6157] synthesizing module 'embsys_tier2_xbar_2_0' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_tier2_xbar_2_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_tier2_xbar_2_0' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_tier2_xbar_2_0_stub.v:5]
+WARNING: [Synth 8-7071] port 'm_axi_awprot' of module 'embsys_tier2_xbar_2_0' is unconnected for instance 'tier2_xbar_2' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:5069]
+WARNING: [Synth 8-7071] port 'm_axi_arprot' of module 'embsys_tier2_xbar_2_0' is unconnected for instance 'tier2_xbar_2' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:5069]
+WARNING: [Synth 8-7023] instance 'tier2_xbar_2' of module 'embsys_tier2_xbar_2_0' has 40 connections declared, but only 38 given [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:5069]
+INFO: [Synth 8-6157] synthesizing module 'embsys_xbar_2' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_xbar_2_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_xbar_2' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_xbar_2_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_microblaze_0_axi_periph_2' (0#1) [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:1761]
+WARNING: [Synth 8-7071] port 'M21_AXI_araddr' of module 'embsys_microblaze_0_axi_periph_2' is unconnected for instance 'microblaze_0_axi_periph' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:1250]
+WARNING: [Synth 8-7071] port 'M21_AXI_arvalid' of module 'embsys_microblaze_0_axi_periph_2' is unconnected for instance 'microblaze_0_axi_periph' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:1250]
+WARNING: [Synth 8-7071] port 'M21_AXI_awaddr' of module 'embsys_microblaze_0_axi_periph_2' is unconnected for instance 'microblaze_0_axi_periph' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:1250]
+WARNING: [Synth 8-7071] port 'M21_AXI_awvalid' of module 'embsys_microblaze_0_axi_periph_2' is unconnected for instance 'microblaze_0_axi_periph' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:1250]
+WARNING: [Synth 8-7071] port 'M21_AXI_bready' of module 'embsys_microblaze_0_axi_periph_2' is unconnected for instance 'microblaze_0_axi_periph' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:1250]
+WARNING: [Synth 8-7071] port 'M21_AXI_rready' of module 'embsys_microblaze_0_axi_periph_2' is unconnected for instance 'microblaze_0_axi_periph' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:1250]
+WARNING: [Synth 8-7071] port 'M21_AXI_wdata' of module 'embsys_microblaze_0_axi_periph_2' is unconnected for instance 'microblaze_0_axi_periph' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:1250]
+WARNING: [Synth 8-7071] port 'M21_AXI_wstrb' of module 'embsys_microblaze_0_axi_periph_2' is unconnected for instance 'microblaze_0_axi_periph' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:1250]
+WARNING: [Synth 8-7071] port 'M21_AXI_wvalid' of module 'embsys_microblaze_0_axi_periph_2' is unconnected for instance 'microblaze_0_axi_periph' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:1250]
+WARNING: [Synth 8-7023] instance 'microblaze_0_axi_periph' of module 'embsys_microblaze_0_axi_periph_2' has 443 connections declared, but only 434 given [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:1250]
+INFO: [Synth 8-6157] synthesizing module 'microblaze_0_local_memory_imp_1SR2TDT' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:8507]
+INFO: [Synth 8-6157] synthesizing module 'embsys_dlmb_bram_if_cntlr_3' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_dlmb_bram_if_cntlr_3_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_dlmb_bram_if_cntlr_3' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_dlmb_bram_if_cntlr_3_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'embsys_dlmb_v10_3' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_dlmb_v10_3_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_dlmb_v10_3' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_dlmb_v10_3_stub.v:5]
+WARNING: [Synth 8-7071] port 'LMB_Rst' of module 'embsys_dlmb_v10_3' is unconnected for instance 'dlmb_v10' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:8653]
+WARNING: [Synth 8-7023] instance 'dlmb_v10' of module 'embsys_dlmb_v10_3' has 25 connections declared, but only 24 given [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:8653]
+INFO: [Synth 8-6157] synthesizing module 'embsys_ilmb_bram_if_cntlr_3' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_ilmb_bram_if_cntlr_3_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_ilmb_bram_if_cntlr_3' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_ilmb_bram_if_cntlr_3_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'embsys_ilmb_v10_3' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_ilmb_v10_3_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_ilmb_v10_3' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_ilmb_v10_3_stub.v:5]
+WARNING: [Synth 8-7071] port 'LMB_Rst' of module 'embsys_ilmb_v10_3' is unconnected for instance 'ilmb_v10' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:8699]
+WARNING: [Synth 8-7023] instance 'ilmb_v10' of module 'embsys_ilmb_v10_3' has 25 connections declared, but only 24 given [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:8699]
+INFO: [Synth 8-6157] synthesizing module 'embsys_lmb_bram_3' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_lmb_bram_3_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_lmb_bram_3' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_lmb_bram_3_stub.v:5]
+WARNING: [Synth 8-7071] port 'rsta_busy' of module 'embsys_lmb_bram_3' is unconnected for instance 'lmb_bram' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:8724]
+WARNING: [Synth 8-7071] port 'rstb_busy' of module 'embsys_lmb_bram_3' is unconnected for instance 'lmb_bram' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:8724]
+WARNING: [Synth 8-7023] instance 'lmb_bram' of module 'embsys_lmb_bram_3' has 16 connections declared, but only 14 given [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:8724]
+INFO: [Synth 8-6155] done synthesizing module 'microblaze_0_local_memory_imp_1SR2TDT' (0#1) [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:8507]
+INFO: [Synth 8-6157] synthesizing module 'embsys_microblaze_0_xlconcat_2' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_microblaze_0_xlconcat_2/synth/embsys_microblaze_0_xlconcat_2.v:53]
+INFO: [Synth 8-6157] synthesizing module 'xlconcat_v2_1_4_xlconcat' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ipshared/4b67/hdl/xlconcat_v2_1_vl_rfs.v:14]
+INFO: [Synth 8-6155] done synthesizing module 'xlconcat_v2_1_4_xlconcat' (0#1) [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ipshared/4b67/hdl/xlconcat_v2_1_vl_rfs.v:14]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_microblaze_0_xlconcat_2' (0#1) [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_microblaze_0_xlconcat_2/synth/embsys_microblaze_0_xlconcat_2.v:53]
+INFO: [Synth 8-6157] synthesizing module 'embsys_nexys4io_0_2' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_nexys4io_0_2_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_nexys4io_0_2' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_nexys4io_0_2_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'embsys_rst_clk_wiz_1_100M_3' [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_rst_clk_wiz_1_100M_3_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_rst_clk_wiz_1_100M_3' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/.Xil/Vivado-19844-LAPTOP-I10N6P43/realtime/embsys_rst_clk_wiz_1_100M_3_stub.v:5]
+WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'embsys_rst_clk_wiz_1_100M_3' is unconnected for instance 'rst_clk_wiz_1_100M' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:1750]
+WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'embsys_rst_clk_wiz_1_100M_3' is unconnected for instance 'rst_clk_wiz_1_100M' [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:1750]
+WARNING: [Synth 8-7023] instance 'rst_clk_wiz_1_100M' of module 'embsys_rst_clk_wiz_1_100M_3' has 10 connections declared, but only 8 given [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:1750]
+INFO: [Synth 8-6155] done synthesizing module 'embsys' (0#1) [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/synth/embsys.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'embsys_wrapper' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/hdl/embsys_wrapper.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'nexysa7fpga' (0#1) [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/ece544w24_project_2_rel/Proj2_rel/nexysa7fpga.sv:8]
+WARNING: [Synth 8-7129] Port In2[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In3[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In4[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In5[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In6[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In7[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In8[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In9[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In10[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In11[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In12[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In13[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In14[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In15[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In16[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In17[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In18[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In19[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In20[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In21[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In22[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In23[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In24[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In25[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In26[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In27[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In28[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In29[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In30[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In31[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In32[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In33[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In34[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In35[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In36[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In37[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In38[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In39[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In40[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In41[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In42[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In43[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In44[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In45[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In46[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In47[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In48[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In49[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In50[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In51[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In52[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In53[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In54[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In55[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In56[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In57[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In58[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In59[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In60[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In61[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In62[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In63[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In64[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In65[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In66[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In67[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In68[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In69[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In70[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In71[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In72[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In73[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In74[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In75[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In76[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In77[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In78[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In79[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In80[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In81[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In82[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In83[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In84[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In85[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In86[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In87[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In88[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In89[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In90[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In91[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In92[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In93[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In94[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In95[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In96[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In97[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In98[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In99[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In100[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In101[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1996.527 ; gain = 519.160
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1996.527 ; gain = 519.160
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1996.527 ; gain = 519.160
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.161 . Memory (MB): peak = 1996.527 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 30 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_microblaze_0_3/embsys_microblaze_0_3/embsys_microblaze_0_3_in_context.xdc] for cell 'embedded/embsys_i/microblaze_0'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_microblaze_0_3/embsys_microblaze_0_3/embsys_microblaze_0_3_in_context.xdc] for cell 'embedded/embsys_i/microblaze_0'
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_dlmb_v10_3/embsys_dlmb_v10_3/embsys_dlmb_v10_3_in_context.xdc] for cell 'embedded/embsys_i/microblaze_0_local_memory/dlmb_v10'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_dlmb_v10_3/embsys_dlmb_v10_3/embsys_dlmb_v10_3_in_context.xdc] for cell 'embedded/embsys_i/microblaze_0_local_memory/dlmb_v10'
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_ilmb_v10_3/embsys_ilmb_v10_3/embsys_dlmb_v10_3_in_context.xdc] for cell 'embedded/embsys_i/microblaze_0_local_memory/ilmb_v10'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_ilmb_v10_3/embsys_ilmb_v10_3/embsys_dlmb_v10_3_in_context.xdc] for cell 'embedded/embsys_i/microblaze_0_local_memory/ilmb_v10'
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_dlmb_bram_if_cntlr_3/embsys_dlmb_bram_if_cntlr_3/embsys_dlmb_bram_if_cntlr_3_in_context.xdc] for cell 'embedded/embsys_i/microblaze_0_local_memory/dlmb_bram_if_cntlr'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_dlmb_bram_if_cntlr_3/embsys_dlmb_bram_if_cntlr_3/embsys_dlmb_bram_if_cntlr_3_in_context.xdc] for cell 'embedded/embsys_i/microblaze_0_local_memory/dlmb_bram_if_cntlr'
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_ilmb_bram_if_cntlr_3/embsys_ilmb_bram_if_cntlr_3/embsys_ilmb_bram_if_cntlr_3_in_context.xdc] for cell 'embedded/embsys_i/microblaze_0_local_memory/ilmb_bram_if_cntlr'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_ilmb_bram_if_cntlr_3/embsys_ilmb_bram_if_cntlr_3/embsys_ilmb_bram_if_cntlr_3_in_context.xdc] for cell 'embedded/embsys_i/microblaze_0_local_memory/ilmb_bram_if_cntlr'
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_lmb_bram_3/embsys_lmb_bram_3/embsys_lmb_bram_3_in_context.xdc] for cell 'embedded/embsys_i/microblaze_0_local_memory/lmb_bram'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_lmb_bram_3/embsys_lmb_bram_3/embsys_lmb_bram_3_in_context.xdc] for cell 'embedded/embsys_i/microblaze_0_local_memory/lmb_bram'
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_xbar_2/embsys_xbar_2/embsys_xbar_2_in_context.xdc] for cell 'embedded/embsys_i/microblaze_0_axi_periph/xbar'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_xbar_2/embsys_xbar_2/embsys_xbar_2_in_context.xdc] for cell 'embedded/embsys_i/microblaze_0_axi_periph/xbar'
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_tier2_xbar_0_0/embsys_tier2_xbar_0_0/embsys_xbar_2_in_context.xdc] for cell 'embedded/embsys_i/microblaze_0_axi_periph/tier2_xbar_0'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_tier2_xbar_0_0/embsys_tier2_xbar_0_0/embsys_xbar_2_in_context.xdc] for cell 'embedded/embsys_i/microblaze_0_axi_periph/tier2_xbar_0'
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_tier2_xbar_1_0/embsys_tier2_xbar_1_0/embsys_tier2_xbar_1_0_in_context.xdc] for cell 'embedded/embsys_i/microblaze_0_axi_periph/tier2_xbar_1'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_tier2_xbar_1_0/embsys_tier2_xbar_1_0/embsys_tier2_xbar_1_0_in_context.xdc] for cell 'embedded/embsys_i/microblaze_0_axi_periph/tier2_xbar_1'
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_tier2_xbar_2_0/embsys_tier2_xbar_2_0/embsys_tier2_xbar_2_0_in_context.xdc] for cell 'embedded/embsys_i/microblaze_0_axi_periph/tier2_xbar_2'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_tier2_xbar_2_0/embsys_tier2_xbar_2_0/embsys_tier2_xbar_2_0_in_context.xdc] for cell 'embedded/embsys_i/microblaze_0_axi_periph/tier2_xbar_2'
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_microblaze_0_axi_intc_2/embsys_microblaze_0_axi_intc_2/embsys_microblaze_0_axi_intc_2_in_context.xdc] for cell 'embedded/embsys_i/microblaze_0_axi_intc'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_microblaze_0_axi_intc_2/embsys_microblaze_0_axi_intc_2/embsys_microblaze_0_axi_intc_2_in_context.xdc] for cell 'embedded/embsys_i/microblaze_0_axi_intc'
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_mdm_1_2/embsys_mdm_1_2/embsys_mdm_1_2_in_context.xdc] for cell 'embedded/embsys_i/mdm_1'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_mdm_1_2/embsys_mdm_1_2/embsys_mdm_1_2_in_context.xdc] for cell 'embedded/embsys_i/mdm_1'
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_clk_wiz_1_3/embsys_clk_wiz_1_3/embsys_clk_wiz_1_3_in_context.xdc] for cell 'embedded/embsys_i/clk_wiz_1'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_clk_wiz_1_3/embsys_clk_wiz_1_3/embsys_clk_wiz_1_3_in_context.xdc] for cell 'embedded/embsys_i/clk_wiz_1'
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_rst_clk_wiz_1_100M_3/embsys_rst_clk_wiz_1_100M_3/embsys_rst_clk_wiz_1_100M_3_in_context.xdc] for cell 'embedded/embsys_i/rst_clk_wiz_1_100M'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_rst_clk_wiz_1_100M_3/embsys_rst_clk_wiz_1_100M_3/embsys_rst_clk_wiz_1_100M_3_in_context.xdc] for cell 'embedded/embsys_i/rst_clk_wiz_1_100M'
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_nexys4io_0_2/embsys_nexys4io_0_2/embsys_nexys4io_0_2_in_context.xdc] for cell 'embedded/embsys_i/nexys4io_0'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_nexys4io_0_2/embsys_nexys4io_0_2/embsys_nexys4io_0_2_in_context.xdc] for cell 'embedded/embsys_i/nexys4io_0'
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_timer_0_2/embsys_axi_timer_0_2/embsys_axi_timer_0_2_in_context.xdc] for cell 'embedded/embsys_i/axi_timer_0'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_timer_0_2/embsys_axi_timer_0_2/embsys_axi_timer_0_2_in_context.xdc] for cell 'embedded/embsys_i/axi_timer_0'
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_uartlite_0_2/embsys_axi_uartlite_0_2/embsys_axi_uartlite_0_2_in_context.xdc] for cell 'embedded/embsys_i/axi_uartlite_0'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_uartlite_0_2/embsys_axi_uartlite_0_2/embsys_axi_uartlite_0_2_in_context.xdc] for cell 'embedded/embsys_i/axi_uartlite_0'
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_iic_0_3/embsys_axi_iic_0_3/embsys_axi_iic_0_3_in_context.xdc] for cell 'embedded/embsys_i/axi_iic_0'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_iic_0_3/embsys_axi_iic_0_3/embsys_axi_iic_0_3_in_context.xdc] for cell 'embedded/embsys_i/axi_iic_0'
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_bidirec_0_0/embsys_bidirec_0_0/embsys_bidirec_1_0_in_context.xdc] for cell 'embedded/embsys_i/bidirec_0'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_bidirec_0_0/embsys_bidirec_0_0/embsys_bidirec_1_0_in_context.xdc] for cell 'embedded/embsys_i/bidirec_0'
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_bidirec_1_0/embsys_bidirec_1_0/embsys_bidirec_1_0_in_context.xdc] for cell 'embedded/embsys_i/bidirec_1'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_bidirec_1_0/embsys_bidirec_1_0/embsys_bidirec_1_0_in_context.xdc] for cell 'embedded/embsys_i/bidirec_1'
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_gpio_0_0/embsys_axi_gpio_0_0/embsys_axi_gpio_3_0_in_context.xdc] for cell 'embedded/embsys_i/axi_gpio_0'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_gpio_0_0/embsys_axi_gpio_0_0/embsys_axi_gpio_3_0_in_context.xdc] for cell 'embedded/embsys_i/axi_gpio_0'
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_gpio_1_0/embsys_axi_gpio_1_0/embsys_axi_gpio_2_0_in_context.xdc] for cell 'embedded/embsys_i/axi_gpio_1'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_gpio_1_0/embsys_axi_gpio_1_0/embsys_axi_gpio_2_0_in_context.xdc] for cell 'embedded/embsys_i/axi_gpio_1'
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_gpio_2_0/embsys_axi_gpio_2_0/embsys_axi_gpio_2_0_in_context.xdc] for cell 'embedded/embsys_i/axi_gpio_2'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_gpio_2_0/embsys_axi_gpio_2_0/embsys_axi_gpio_2_0_in_context.xdc] for cell 'embedded/embsys_i/axi_gpio_2'
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_gpio_3_0/embsys_axi_gpio_3_0/embsys_axi_gpio_3_0_in_context.xdc] for cell 'embedded/embsys_i/axi_gpio_3'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_gpio_3_0/embsys_axi_gpio_3_0/embsys_axi_gpio_3_0_in_context.xdc] for cell 'embedded/embsys_i/axi_gpio_3'
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_gpio_4_0/embsys_axi_gpio_4_0/embsys_axi_gpio_3_0_in_context.xdc] for cell 'embedded/embsys_i/axi_gpio_4'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_gpio_4_0/embsys_axi_gpio_4_0/embsys_axi_gpio_3_0_in_context.xdc] for cell 'embedded/embsys_i/axi_gpio_4'
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_gpio_5_0/embsys_axi_gpio_5_0/embsys_axi_gpio_3_0_in_context.xdc] for cell 'embedded/embsys_i/axi_gpio_5'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_gpio_5_0/embsys_axi_gpio_5_0/embsys_axi_gpio_3_0_in_context.xdc] for cell 'embedded/embsys_i/axi_gpio_5'
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_gpio_6_0/embsys_axi_gpio_6_0/embsys_axi_gpio_3_0_in_context.xdc] for cell 'embedded/embsys_i/axi_gpio_6'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_gpio_6_0/embsys_axi_gpio_6_0/embsys_axi_gpio_3_0_in_context.xdc] for cell 'embedded/embsys_i/axi_gpio_6'
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_gpio_7_0/embsys_axi_gpio_7_0/embsys_axi_gpio_3_0_in_context.xdc] for cell 'embedded/embsys_i/axi_gpio_7'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_gpio_7_0/embsys_axi_gpio_7_0/embsys_axi_gpio_3_0_in_context.xdc] for cell 'embedded/embsys_i/axi_gpio_7'
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_gpio_8_0/embsys_axi_gpio_8_0/embsys_axi_gpio_3_0_in_context.xdc] for cell 'embedded/embsys_i/axi_gpio_8'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_gpio_8_0/embsys_axi_gpio_8_0/embsys_axi_gpio_3_0_in_context.xdc] for cell 'embedded/embsys_i/axi_gpio_8'
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_gpio_9_0/embsys_axi_gpio_9_0/embsys_axi_gpio_3_0_in_context.xdc] for cell 'embedded/embsys_i/axi_gpio_9'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_gpio_9_0/embsys_axi_gpio_9_0/embsys_axi_gpio_3_0_in_context.xdc] for cell 'embedded/embsys_i/axi_gpio_9'
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_gpio_10_0/embsys_axi_gpio_10_0/embsys_axi_gpio_3_0_in_context.xdc] for cell 'embedded/embsys_i/axi_gpio_10'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_gpio_10_0/embsys_axi_gpio_10_0/embsys_axi_gpio_3_0_in_context.xdc] for cell 'embedded/embsys_i/axi_gpio_10'
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_gpio_11_0/embsys_axi_gpio_11_0/embsys_axi_gpio_3_0_in_context.xdc] for cell 'embedded/embsys_i/axi_gpio_11'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_gpio_11_0/embsys_axi_gpio_11_0/embsys_axi_gpio_3_0_in_context.xdc] for cell 'embedded/embsys_i/axi_gpio_11'
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_gpio_12_0/embsys_axi_gpio_12_0/embsys_axi_gpio_3_0_in_context.xdc] for cell 'embedded/embsys_i/axi_gpio_12'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_gpio_12_0/embsys_axi_gpio_12_0/embsys_axi_gpio_3_0_in_context.xdc] for cell 'embedded/embsys_i/axi_gpio_12'
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_gpio_13_0/embsys_axi_gpio_13_0/embsys_axi_gpio_3_0_in_context.xdc] for cell 'embedded/embsys_i/axi_gpio_13'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_gpio_13_0/embsys_axi_gpio_13_0/embsys_axi_gpio_3_0_in_context.xdc] for cell 'embedded/embsys_i/axi_gpio_13'
+Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_gpio_14_0/embsys_axi_gpio_14_0/embsys_axi_gpio_3_0_in_context.xdc] for cell 'embedded/embsys_i/axi_gpio_14'
+Finished Parsing XDC File [e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_axi_gpio_14_0/embsys_axi_gpio_14_0/embsys_axi_gpio_3_0_in_context.xdc] for cell 'embedded/embsys_i/axi_gpio_14'
+Parsing XDC File [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/ece544w24_project_2_rel/Proj2_rel/rvfpganexys.xdc]
+Finished Parsing XDC File [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/ece544w24_project_2_rel/Proj2_rel/rvfpganexys.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/ece544w24_project_2_rel/Proj2_rel/rvfpganexys.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/nexysa7fpga_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/nexysa7fpga_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2079.457 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 30 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 30 instances
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 2079.457 ; gain = 0.000
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'embedded/embsys_i/microblaze_0_local_memory/lmb_bram' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [F:/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 2080.480 ; gain = 603.113
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 2080.480 ; gain = 603.113
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property IO_BUFFER_TYPE = NONE for clk. (constraint file  e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_clk_wiz_1_3/embsys_clk_wiz_1_3/embsys_clk_wiz_1_3_in_context.xdc, line 4).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for clk. (constraint file  e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_clk_wiz_1_3/embsys_clk_wiz_1_3/embsys_clk_wiz_1_3_in_context.xdc, line 5).
+Applied set_property IO_BUFFER_TYPE = NONE for sclk_io. (constraint file  e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_bidirec_0_0/embsys_bidirec_0_0/embsys_bidirec_1_0_in_context.xdc, line 1).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for sclk_io. (constraint file  e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_bidirec_0_0/embsys_bidirec_0_0/embsys_bidirec_1_0_in_context.xdc, line 2).
+Applied set_property IO_BUFFER_TYPE = NONE for sda_io. (constraint file  e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_bidirec_1_0/embsys_bidirec_1_0/embsys_bidirec_1_0_in_context.xdc, line 1).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for sda_io. (constraint file  e:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.gen/sources_1/bd/embsys/ip/embsys_bidirec_1_0/embsys_bidirec_1_0/embsys_bidirec_1_0_in_context.xdc, line 2).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/microblaze_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/microblaze_0_local_memory/dlmb_v10. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/microblaze_0_local_memory/ilmb_v10. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/microblaze_0_local_memory/dlmb_bram_if_cntlr. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/microblaze_0_local_memory/ilmb_bram_if_cntlr. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/microblaze_0_local_memory/lmb_bram. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/microblaze_0_axi_periph/xbar. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/microblaze_0_axi_periph/tier2_xbar_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/microblaze_0_axi_periph/tier2_xbar_1. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/microblaze_0_axi_periph/tier2_xbar_2. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/microblaze_0_axi_periph. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/microblaze_0_axi_intc. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/microblaze_0_xlconcat. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/mdm_1. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/clk_wiz_1. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/rst_clk_wiz_1_100M. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/nexys4io_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/axi_timer_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/axi_uartlite_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/axi_iic_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/bidirec_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/bidirec_1. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/axi_gpio_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/axi_gpio_1. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/axi_gpio_2. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/axi_gpio_3. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/axi_gpio_4. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/axi_gpio_5. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/axi_gpio_6. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/axi_gpio_7. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/axi_gpio_8. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/axi_gpio_9. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/axi_gpio_10. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/axi_gpio_11. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/axi_gpio_12. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/axi_gpio_13. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for embedded/embsys_i/axi_gpio_14. (constraint file  auto generated constraint).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 2080.480 ; gain = 603.113
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2080.480 ; gain = 603.113
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 2080.480 ; gain = 603.113
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 2080.480 ; gain = 603.113
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 2080.480 ; gain = 603.113
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 2080.480 ; gain = 603.113
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 2080.480 ; gain = 603.113
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 2080.480 ; gain = 603.113
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 2080.480 ; gain = 603.113
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 2080.480 ; gain = 603.113
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 2080.480 ; gain = 603.113
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 2080.480 ; gain = 603.113
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+-------------------------------+----------+
+|      |BlackBox name                  |Instances |
++------+-------------------------------+----------+
+|1     |embsys_tier2_xbar_0_0          |         1|
+|2     |embsys_tier2_xbar_1_0          |         1|
+|3     |embsys_tier2_xbar_2_0          |         1|
+|4     |embsys_xbar_2                  |         1|
+|5     |embsys_axi_gpio_0_0            |         1|
+|6     |embsys_axi_gpio_1_0            |         1|
+|7     |embsys_axi_gpio_10_0           |         1|
+|8     |embsys_axi_gpio_11_0           |         1|
+|9     |embsys_axi_gpio_12_0           |         1|
+|10    |embsys_axi_gpio_13_0           |         1|
+|11    |embsys_axi_gpio_14_0           |         1|
+|12    |embsys_axi_gpio_2_0            |         1|
+|13    |embsys_axi_gpio_3_0            |         1|
+|14    |embsys_axi_gpio_4_0            |         1|
+|15    |embsys_axi_gpio_5_0            |         1|
+|16    |embsys_axi_gpio_6_0            |         1|
+|17    |embsys_axi_gpio_7_0            |         1|
+|18    |embsys_axi_gpio_8_0            |         1|
+|19    |embsys_axi_gpio_9_0            |         1|
+|20    |embsys_axi_iic_0_3             |         1|
+|21    |embsys_axi_timer_0_2           |         1|
+|22    |embsys_axi_uartlite_0_2        |         1|
+|23    |embsys_bidirec_0_0             |         1|
+|24    |embsys_bidirec_1_0             |         1|
+|25    |embsys_clk_wiz_1_3             |         1|
+|26    |embsys_mdm_1_2                 |         1|
+|27    |embsys_microblaze_0_3          |         1|
+|28    |embsys_microblaze_0_axi_intc_2 |         1|
+|29    |embsys_nexys4io_0_2            |         1|
+|30    |embsys_rst_clk_wiz_1_100M_3    |         1|
+|31    |embsys_dlmb_bram_if_cntlr_3    |         1|
+|32    |embsys_dlmb_v10_3              |         1|
+|33    |embsys_ilmb_bram_if_cntlr_3    |         1|
+|34    |embsys_ilmb_v10_3              |         1|
+|35    |embsys_lmb_bram_3              |         1|
++------+-------------------------------+----------+
+
+Report Cell Usage: 
++------+-----------------------------+------+
+|      |Cell                         |Count |
++------+-----------------------------+------+
+|1     |embsys_axi_gpio_0            |     1|
+|2     |embsys_axi_gpio_10           |     1|
+|3     |embsys_axi_gpio_11           |     1|
+|4     |embsys_axi_gpio_12           |     1|
+|5     |embsys_axi_gpio_13           |     1|
+|6     |embsys_axi_gpio_14           |     1|
+|7     |embsys_axi_gpio_1            |     1|
+|8     |embsys_axi_gpio_2            |     1|
+|9     |embsys_axi_gpio_3            |     1|
+|10    |embsys_axi_gpio_4            |     1|
+|11    |embsys_axi_gpio_5            |     1|
+|12    |embsys_axi_gpio_6            |     1|
+|13    |embsys_axi_gpio_7            |     1|
+|14    |embsys_axi_gpio_8            |     1|
+|15    |embsys_axi_gpio_9            |     1|
+|16    |embsys_axi_iic_0             |     1|
+|17    |embsys_axi_timer_0           |     1|
+|18    |embsys_axi_uartlite_0        |     1|
+|19    |embsys_bidirec_0             |     1|
+|20    |embsys_bidirec_1             |     1|
+|21    |embsys_clk_wiz_1             |     1|
+|22    |embsys_dlmb_bram_if_cntlr    |     1|
+|23    |embsys_dlmb_v10              |     1|
+|24    |embsys_ilmb_bram_if_cntlr    |     1|
+|25    |embsys_ilmb_v10              |     1|
+|26    |embsys_lmb_bram              |     1|
+|27    |embsys_mdm_1                 |     1|
+|28    |embsys_microblaze_0          |     1|
+|29    |embsys_microblaze_0_axi_intc |     1|
+|30    |embsys_nexys4io_0            |     1|
+|31    |embsys_rst_clk_wiz_1_100M    |     1|
+|32    |embsys_tier2_xbar_0          |     1|
+|33    |embsys_tier2_xbar_1          |     1|
+|34    |embsys_tier2_xbar_2          |     1|
+|35    |embsys_xbar                  |     1|
+|36    |IBUF                         |    23|
+|37    |IOBUF                        |    30|
+|38    |OBUF                         |    39|
++------+-----------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 2080.480 ; gain = 603.113
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 176 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:36 . Memory (MB): peak = 2080.480 ; gain = 519.160
+Synthesis Optimization Complete : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 2080.480 ; gain = 603.113
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.079 . Memory (MB): peak = 2080.480 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 30 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2080.480 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 30 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 30 instances
+
+Synth Design complete, checksum: 7841588c
+INFO: [Common 17-83] Releasing license: Synthesis
+167 Infos, 141 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:46 ; elapsed = 00:00:53 . Memory (MB): peak = 2080.480 ; gain = 1005.602
+INFO: [Common 17-1381] The checkpoint 'E:/EMBEDDED_DESIGN/PID_CONTROL_PROJ1/TEST1_VIVADO/project_1/project_1.runs/synth_1/nexysa7fpga.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file nexysa7fpga_utilization_synth.rpt -pb nexysa7fpga_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Tue Mar 19 15:23:47 2024...

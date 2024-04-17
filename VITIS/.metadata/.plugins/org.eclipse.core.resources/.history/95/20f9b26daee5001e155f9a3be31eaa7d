@@ -1,0 +1,19 @@
+#include "gpio_all.h"
+
+#include <stdbool.h>
+#include "xparameters.h"
+#include "xstatus.h"
+#include "xgpio.h"
+#include "xil_printf.h"
+#include "xiic.h"
+#include "nexys4IO.h"
+#include "xuartlite_l.h"
+#include "xuartlite.h"
+#include "microblaze_sleep.h"
+
+#define DELAY 50000
+#define CW 1  // Clockwise
+#define CCW 0
+
+
+

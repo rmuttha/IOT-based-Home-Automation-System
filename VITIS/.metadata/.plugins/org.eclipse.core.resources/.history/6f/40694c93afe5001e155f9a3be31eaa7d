@@ -1,0 +1,30 @@
+#ifndef CHECK_H
+#define CHECK_H
+
+
+#include  "xparameters.h"
+#include  "xstatus.h"
+#include "xgpio.h"
+
+#define DELAY 50000
+#define CW 1  // Clockwise
+#define CCW 0
+
+XGpio FAN_OUT_ONE,FAN_OUT_SECOND,FAN_OUT_THIRD,FAN_OUT_FOURTH,FAN_OUT_FIFTH,FAN_OUT_TEMP,STEPPER_ONE,STEPPER_TWO,STEPPER_THREE,STEPPER_FOUR,STEPPER_FIVE;
+u32 data;
+int stepsPerRevolution = 6200;
+
+void delay(int n);
+void stepMotor(int step, int direction);
+
+void gpioinit(XGpio* FAN_OUT_ONE,XGpio* FAN_OUT_SECOND,XGpio* FAN_OUT_THIRD,XGpio* FAN_OUT_FOURTH,XGpio* FAN_OUT_FIFTH,XGpio* FAN_OUT_TEMP,
+					XGpio* STEPPER_ONE,XGpio* STEPPER_TWO,XGpio* STEPPER_THREE,XGpio* STEPPER_FOUR,XGpio* STEPPER_FIVE);
+	 
+	void setting_direction(XGpio* FAN_OUT_ONE,XGpio* FAN_OUT_SECOND,XGpio* FAN_OUT_THIRD,XGpio* FAN_OUT_FOURTH,XGpio* FAN_OUT_FIFTH,XGpio* FAN_OUT_TEMP,
+							 XGpio* STEPPER_ONE,XGpio* STEPPER_TWO,XGpio* STEPPER_THREE,XGpio* STEPPER_FOUR,XGpio* STEPPER_FIVE);
+							 
+							 
+	void check_status_of_motors(XGpio* FAN_OUT_ONE,XGpio* FAN_OUT_SECOND,XGpio* FAN_OUT_THIRD,XGpio* FAN_OUT_FOURTH,XGpio* FAN_OUT_FIFTH,XGpio* FAN_OUT_TEMP,
+							   XGpio* STEPPER_ONE,XGpio* STEPPER_TWO,XGpio* STEPPER_THREE,XGpio* STEPPER_FOUR,XGpio* STEPPER_FIVE);
+
+							   #endif

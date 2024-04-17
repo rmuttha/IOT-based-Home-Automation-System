@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;Final_project_Application/src/GPIO_ALL.c&apos; to &apos;gpio_all.c&apos;" description="Rename resource &apos;GPIO_ALL.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/GPIO_ALL.c" name="gpio_all.c" stamp="1710824698462" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;Final_project_Application/src/GPIO_ALL.h&apos; to &apos;gpio_all.h&apos;" description="Rename resource &apos;GPIO_ALL.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/GPIO_ALL.h" name="gpio_all.h" stamp="1710824711780" updateReferences="true"/>
+</session>
