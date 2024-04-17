@@ -13,7 +13,11 @@ It allows users to remotely control and monitor home appliances, lighting, and o
 - ESP32 WiFi Module
 - 28BYJ-48 Stepper motors with ULN2003 Driver
 - MPU 6050 sensor
-- Mini Bulbs, Buzzer, Relay Module, and more.
+- Mini Bulbs, Buzzer, Relay Module
+- Fan
+- Wires
+- Android Device
+- MQ2 sensor
   
 ## Software Tools
 - Vivado: For RTL and embedded design development.
@@ -31,6 +35,9 @@ It allows users to remotely control and monitor home appliances, lighting, and o
 - Android App: Use the Android application to control and monitor devices.
 - MQTT Server: Connect the devices to the MQTT server as detailed in the setup guide.
 - Sensor Monitoring: Monitor sensors directly from the app for real-time updates.
+
+  ![IoT based Home Automation System Architecture](./Images/Functional Diagram.png)
+
   
 ## Datasheets
 - Refer to the detailed datasheets included in the project report for specifications and operational guidelines of each hardware component used.
@@ -55,7 +62,7 @@ It allows users to remotely control and monitor home appliances, lighting, and o
   - [Android Navigation Design Actions](https://developer.android.com/guide/navigation/design/actions)
   - [Navigating Android Fragments with the Navigation Component](https://medium.com/@mr.appbuilder/navigating-android-fragments-with-the-navigation-component-part-1-1d238e000313)
  
-  - ### Reference Links
+- ## Reference Links
 These links provide additional context and tutorials for components and technologies used in the project:
 - [Random Nerd Tutorials - ESP32](https://randomnerdtutorials.com/getting-started-with-esp32/)
 - [Last Minute Engineers - Stepper Motor Tutorial](https://lastminuteengineers.com/28byj48-stepper-motor-arduino-tutorial/)
