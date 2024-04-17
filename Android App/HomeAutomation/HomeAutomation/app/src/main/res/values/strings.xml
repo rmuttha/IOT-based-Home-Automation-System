@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">HomeAutomation</string>
+
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="connect_mqtt">ON</string>
+    <string name="disconnect_mqtt">OFF</string>
+    <string name="home_page">Home Page</string>
+    <string name="living_room">Living Room</string>
+    <string name="livingroom_icon">Livingroom Icon</string>
+    <string name="room">Room</string>
+    <string name="garage">Garage</string>
+    <string name="kitchen">Kitchen</string>
+    <string name="garden">Garden</string>
+    <string name="light">Light</string>
+    <string name="fan">Fan</string>
+    <string name="temperature">Temperature</string>
+    <string name="homepage">Homepage</string>
+    <string name="curtain">Curtain</string>
+    <string name="door">Door</string>
+    <string name="turn_off">OFF</string>
+    <string name="turn_on">ON</string>
+    <string name="close">Close</string>
+    <string name="open">Open</string>
+    <string name="returnTo">return</string>
+    <string name="smoke">Smoke</string>
+    <string name="not_detected">Not detected</string>
+</resources>

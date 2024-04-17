@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/initialpage">
+
+    <fragment
+        android:id="@+id/homepage"
+        android:name="com.example.homeautomation.Homepage"
+        android:label="fragment_homepage"
+        tools:layout="@layout/fragment_homepage" >
+        <action
+            android:id="@+id/action_homepage_to_livingroom"
+            app:destination="@id/livingroom" />
+        <action
+            android:id="@+id/action_homepage_to_bedroom"
+            app:destination="@id/bedroom" />
+        <action
+            android:id="@+id/action_homepage_to_garage"
+            app:destination="@id/garage" />
+        <action
+            android:id="@+id/action_homepage_to_kitchen"
+            app:destination="@id/kitchen" />
+        <action
+            android:id="@+id/action_homepage_to_garden"
+            app:destination="@id/garden" />
+        <action
+            android:id="@+id/action_homepage_to_initialpage"
+            app:destination="@id/initialpage" />
+    </fragment>
+    <fragment
+        android:id="@+id/garage"
+        android:name="com.example.homeautomation.garage"
+        android:label="fragment_garage"
+        tools:layout="@layout/fragment_garage" >
+        <action
+            android:id="@+id/action_garage_to_homepage"
+            app:destination="@id/homepage" />
+    </fragment>
+    <fragment
+        android:id="@+id/kitchen"
+        android:name="com.example.homeautomation.kitchen"
+        android:label="fragment_kitchen"
+        tools:layout="@layout/fragment_kitchen" >
+        <action
+            android:id="@+id/action_kitchen_to_homepage"
+            app:destination="@id/homepage" />
+    </fragment>
+    <fragment
+        android:id="@+id/livingroom"
+        android:name="com.example.homeautomation.livingroom"
+        android:label="fragment_livingroom"
+        tools:layout="@layout/fragment_livingroom" >
+        <action
+            android:id="@+id/action_livingroom_to_homepage"
+            app:destination="@id/homepage" />
+    </fragment>
+    <fragment
+        android:id="@+id/bedroom"
+        android:name="com.example.homeautomation.bedroom"
+        android:label="fragment_bedroom"
+        tools:layout="@layout/fragment_bedroom" >
+        <action
+            android:id="@+id/action_bedroom_to_homepage"
+            app:destination="@id/homepage" />
+    </fragment>
+    <fragment
+        android:id="@+id/garden"
+        android:name="com.example.homeautomation.garden"
+        android:label="fragment_garden"
+        tools:layout="@layout/fragment_garden" >
+        <action
+            android:id="@+id/action_garden_to_homepage"
+            app:destination="@id/homepage" />
+    </fragment>
+    <fragment
+        android:id="@+id/initialpage"
+        android:name="com.example.homeautomation.initialpage"
+        android:label="fragment_initial"
+        tools:layout="@layout/fragment_initialpage" >
+        <action
+            android:id="@+id/action_initialpage_to_homepage"
+            app:destination="@id/homepage" />
+    </fragment>
+</navigation>

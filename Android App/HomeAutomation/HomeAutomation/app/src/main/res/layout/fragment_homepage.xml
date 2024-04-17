@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_bg_homepage"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".Homepage">
+
+ <RelativeLayout
+     android:id="@+id/main_container"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent">
+
+  <LinearLayout
+      android:id="@+id/homepage"
+      android:layout_gravity="center"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+
+   <TextView
+       android:textColor="@color/white"
+       android:text="@string/home_page"
+       android:textSize="30sp"
+       android:gravity="center"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"/>
+
+  </LinearLayout>
+
+  <LinearLayout
+      android:id="@+id/pagesContainer"
+      android:orientation="vertical"
+      android:paddingTop="130dp"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+
+      <LinearLayout
+          android:id="@+id/hpList1"
+          android:gravity="center"
+          android:weightSum="2"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="#3CF1EBF1"
+        android:layout_width="170dp"
+        android:layout_height="110dp">
+
+     <ImageButton
+         android:id="@+id/lrButton"
+         android:background="#3CF1EBF1"
+         android:layout_width="match_parent"
+         android:layout_height="80dp"
+         android:scaleType="fitCenter"
+         android:src="@drawable/livingroom"
+         app:tint="@color/white"/>
+
+     <TextView
+         android:id="@+id/livingRoom"
+         android:textSize="17sp"
+         android:paddingTop="5dp"
+         android:text="@string/living_room"
+         android:textColor="@color/white"
+         android:layout_width="wrap_content"
+         android:layout_height="30dp"/>
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="#3CF1EBF1"
+        android:layout_width="170dp"
+        android:layout_height="110dp">
+
+     <ImageButton
+         android:id="@+id/kButton"
+         android:background="#3CF1EBF1"
+         android:layout_width="match_parent"
+         android:layout_height="80dp"
+         android:scaleType="fitCenter"
+         android:src="@drawable/kitchen"
+         app:tint="@color/white"/>
+
+     <TextView
+         android:textSize="17sp"
+         android:paddingTop="5dp"
+         android:text="@string/kitchen"
+         android:textColor="@color/white"
+         android:layout_width="wrap_content"
+         android:layout_height="30dp"/>
+
+    </LinearLayout>
+      </LinearLayout>
+
+      <LinearLayout
+          android:id="@+id/hpList2"
+          android:gravity="center"
+          android:weightSum="2"
+          android:paddingTop="15dp"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+          <LinearLayout
+              android:orientation="vertical"
+              android:gravity="center"
+              android:background="#3CF1EBF1"
+              android:layout_width="170dp"
+              android:layout_height="110dp">
+
+              <ImageButton
+                  android:id="@+id/brButton"
+                  android:background="#3CF1EBF1"
+                  android:layout_width="match_parent"
+                  android:layout_height="80dp"
+                  android:scaleType="fitCenter"
+                  android:src="@drawable/room"
+                  app:tint="@color/white"/>
+
+              <TextView
+                  android:id="@+id/room"
+                  android:textSize="17sp"
+                  android:paddingTop="5dp"
+                  android:text="@string/room"
+                  android:textColor="@color/white"
+                  android:layout_width="wrap_content"
+                  android:layout_height="30dp"/>
+
+          </LinearLayout>
+
+          <Space
+              android:layout_width="20dp"
+              android:layout_height="wrap_content"/>
+
+          <LinearLayout
+              android:orientation="vertical"
+              android:layout_weight="1"
+              android:gravity="center"
+              android:background="#3CF1EBF1"
+              android:layout_width="170dp"
+              android:layout_height="110dp">
+
+              <ImageButton
+                  android:id="@+id/grButton"
+                  android:background="#3CF1EBF1"
+                  android:layout_width="match_parent"
+                  android:layout_height="80dp"
+                  android:scaleType="fitCenter"
+                  android:src="@drawable/garage"
+                  app:tint="@color/white"/>
+
+              <Space
+                  android:layout_width="5dp"
+                  android:layout_height="wrap_content"/>
+
+              <TextView
+                  android:textSize="17sp"
+                  android:paddingTop="5dp"
+                  android:text="@string/garage"
+                  android:textColor="@color/white"
+                  android:layout_width="wrap_content"
+                  android:layout_height="30dp"/>
+
+          </LinearLayout>
+      </LinearLayout>
+
+      <LinearLayout
+          android:id="@+id/hpList3"
+          android:gravity="center"
+          android:weightSum="2"
+          android:paddingTop="15dp"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+          <LinearLayout
+              android:orientation="vertical"
+              android:gravity="center"
+              android:background="#3CF1EBF1"
+              android:layout_width="170dp"
+              android:layout_height="110dp">
+
+              <ImageButton
+                  android:id="@+id/gdButton"
+                  android:background="#3CF1EBF1"
+                  android:layout_width="match_parent"
+                  android:layout_height="80dp"
+                  android:scaleType="fitCenter"
+                  android:src="@drawable/garden"
+                  app:tint="@color/white"/>
+
+              <TextView
+                  android:id="@+id/garden"
+                  android:textSize="17sp"
+                  android:paddingTop="5dp"
+                  android:text="@string/garden"
+                  android:textColor="@color/white"
+                  android:layout_width="wrap_content"
+                  android:layout_height="30dp"/>
+
+          </LinearLayout>
+
+      </LinearLayout>
+
+   </LinearLayout>
+
+     <LinearLayout
+         android:id="@+id/mqttContainer"
+         android:gravity="center"
+         android:orientation="horizontal"
+         android:layout_alignParentBottom="true"
+         android:paddingBottom="70dp"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content">
+
+         <Button
+             android:id="@+id/initialpage"
+             android:backgroundTint="#739BAE"
+             android:text="@string/returnTo"
+             android:textSize="20sp"
+             android:textColor="@color/white"
+             android:layout_width="160dp"
+             android:layout_height="wrap_content"/>
+
+     </LinearLayout>
+
+ </RelativeLayout>
+
+</RelativeLayout>

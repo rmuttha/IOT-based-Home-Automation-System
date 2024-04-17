@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_bg_garage"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".garage">
+
+    <RelativeLayout
+        android:id="@+id/main_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/garagePage"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textColor="@color/white"
+                android:text="@string/garage"
+                android:textSize="30sp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/pagesContainer"
+            android:orientation="vertical"
+            android:paddingTop="190dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/grList"
+                android:gravity="center"
+                android:weightSum="2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:background="#3CF1EBF1"
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:background="#3CF1EBF1"
+                        android:src="@drawable/light"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"/>
+
+                    <TextView
+                        android:textSize="25sp"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:text="@string/light"
+                        android:layout_width="80dp"
+                        android:layout_height="30dp"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:background="#3CF1EBF1"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp">
+
+                        <Button
+                            android:id="@+id/lightOnButton"
+                            android:backgroundTint="#739BAE"
+                            android:text="@string/turn_on"
+                            android:textSize="15sp"
+                            android:textColor="@color/white"
+                            android:layout_width="90dp"
+                            android:layout_height="match_parent"/>
+
+                        <Button
+                            android:id="@+id/lightOffButton"
+                            android:backgroundTint="#739BAE"
+                            android:text="@string/turn_off"
+                            android:textSize="15sp"
+                            android:textColor="@color/white"
+                            android:layout_width="90dp"
+                            android:layout_height="match_parent"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content">
+
+                </Space>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:background="#3CF1EBF1"
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:background="#3CF1EBF1"
+                        android:src="@drawable/door"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"/>
+
+                    <TextView
+                        android:textSize="25sp"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:text="@string/door"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:background="#3CF1EBF1"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp">
+
+                        <Button
+                            android:id="@+id/doorOpenButton"
+                            android:backgroundTint="#739BAE"
+                            android:text="@string/open"
+                            android:textSize="15sp"
+                            android:textColor="@color/white"
+                            android:layout_width="90dp"
+                            android:layout_height="match_parent"/>
+
+                        <Button
+                            android:id="@+id/doorCloseButton"
+                            android:backgroundTint="#739BAE"
+                            android:text="@string/close"
+                            android:textSize="15sp"
+                            android:textColor="@color/white"
+                            android:layout_width="90dp"
+                            android:layout_height="match_parent"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mqttContainer"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_above="@+id/returnContainer"
+            android:paddingBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/mqttConnect"
+                android:backgroundTint="#739BAE"
+                android:text="@string/connect_mqtt"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"/>
+
+            <Space
+                android:layout_width="25dp"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/mqttDisconnect"
+                android:backgroundTint="#739BAE"
+                android:text="@string/disconnect_mqtt"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/returnContainer"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:paddingBottom="70dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/homepageButton"
+                android:backgroundTint="#739BAE"
+                android:text="@string/homepage"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
