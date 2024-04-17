@@ -36,7 +36,7 @@ It allows users to remotely control and monitor home appliances, lighting, and o
 - MQTT Server: Connect the devices to the MQTT server as detailed in the setup guide.
 - Sensor Monitoring: Monitor sensors directly from the app for real-time updates.
 
-  ![IoT based Home Automation System Architecture](./Images/Functional Diagram.png)
+![Functional Diagram](Images/Functional%20Diagram.png)
 
   
 ## Datasheets
